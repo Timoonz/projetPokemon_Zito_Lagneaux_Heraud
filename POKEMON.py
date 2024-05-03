@@ -27,7 +27,18 @@ class Pokemon (metaclass = ABCMeta):
         self.position = position # On définit comme position (-10,-10) pour les pokemons aquis
                                  # pour les différencier des pokemons sauvages
 
-
+    def __str__(self) :
+        
+        
+        '''
+        Surcharge de la fonction str
+        '''
+        
+        txt = str(self.name)
+        
+        return txt
+    
+        
     def attaque_neutre():
         
         '''
@@ -36,14 +47,14 @@ class Pokemon (metaclass = ABCMeta):
 
         pass
     
-    @abstractmethod
-    def attaque_speciale(self) :
+    # @abstractmethod
+    # def attaque_speciale(self) :
         
-        '''
-        Cette fonction définit l'attaque spéciale d'un pokemon
-        '''
+    #     '''
+    #     Cette fonction définit l'attaque spéciale d'un pokemon
+    #     '''
         
-        pass
+    #     pass
 
 
 
