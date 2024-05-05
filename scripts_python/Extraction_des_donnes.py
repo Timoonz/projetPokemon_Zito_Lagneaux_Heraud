@@ -8,8 +8,8 @@ Created on Fri May  3 21:56:57 2024
 import pandas as pd
 import POKEMON as p
 
-types_pokemon = pd.read_csv('pokemon_first_gen.csv')
-pokemons_map = pd.read_csv('pokemon_coordinates.csv')
+types_pokemon = pd.read_csv('../data/pokemon_first_gen.csv')
+pokemons_map = pd.read_csv('../data/pokemon_coordinates.csv')
 
 Pokemon_map = []
 
