@@ -39,13 +39,15 @@ class Pokemon (metaclass = ABCMeta):
         return txt
     
         
-    def attaque_neutre():
+    def attaque_neutre(self, enemi):
         
         '''
         Cette méthode permet à un pokemon d'effectuer une attaque neutre
         '''
 
-        pass
+        degats = int(self.atk * 15 /self.deff)
+        
+        return degats
     
     # @abstractmethod
     # def attaque_speciale(self) :
@@ -66,7 +68,10 @@ class Fire (Pokemon) :
     Cette classe contient les pokemons de type feu
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 0.5 , 'Water' : 0.5 ,            # Ici on reseigne les forces et  
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 2 ,    # les faiblesse du pokemon envers
                            'Bug' : 2 , 'Normal' : 1 , 'Grass' : 2 , 'Poison' : 1 ,      # les autres types
@@ -89,7 +94,10 @@ class Water (Pokemon) :
     Cette classe contient les pokemons de type eau
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 0.5 , 'Water' : 0.5 ,            # Ici on reseigne les forces et
                            'Fire' : 2 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,      # les faiblesse du pokemon envers
                            'Bug' : 1 , 'Normal' : 1 , 'Grass' : 0.5 , 'Poison' : 1 ,    # les autres types
@@ -112,7 +120,10 @@ class Bug (Pokemon) :
     Cette classe contient les pokemons de type insecte
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 0.5 , 'Dragon' : 1 , 'Water' : 1 ,              # Ici on reseigne les forces et
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 0.5 , 'Ice' : 1 ,  # les faiblesse du pokemon envers
                            'Bug' : 1 , 'Normal' : 1 , 'Grass' : 2 , 'Poison' : 0.5 ,    # les autres types
@@ -135,13 +146,24 @@ class Normal (Pokemon) :
     Cette classe contient les pokemons de type normal
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,      # les faiblesse du pokemon envers
                            'Bug' : 1 , 'Normal' : 1 , 'Grass' : 1 , 'Poison' : 1 ,      # les autres types
                            'Psychic' : 1 , 'Rock' : 0.5 , 'Ground' : 1 , 'Ghost' : 0 , 
                            'Flying' : 1}
         
+        
+    def attaque_speciale ():
+ 
+        '''
+        Cette méthode définit l'attaque spécale des pokemons de type insecte
+        '''        
+        
+        pass        
    
     
 class Electric (Pokemon) :
@@ -150,7 +172,10 @@ class Electric (Pokemon) :
     Cette classe contient les pokemons de type electrik
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 0.5 , 'Water' : 2 ,              # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 0.5 , 'Fairy' : 1 , 'Ice' : 1 ,    # les faiblesse du pokemon envers
                            'Bug' : 1 , 'Normal' : 1 , 'Grass' : 0.5 , 'Poison' : 1 ,    # les autres types
@@ -173,7 +198,10 @@ class Poison (Pokemon) :
     Cette classe contient les pokemons de type poison
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                    # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 2 , 'Ice' : 1 ,          # les faiblesse du pokemon envers
                            'Bug' : 1 , 'Normal' : 1 , 'Grass' : 2 , 'Poison' : 0.5 ,        # les autres types
@@ -196,7 +224,10 @@ class Ground (Pokemon) :
     Cette classe contient les pokemons de type sol
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 2 , 'Electric' : 2 , 'Fairy' : 1 , 'Ice' : 0 ,      # les faiblesse du pokemon envers
                            'Bug' : 0.5 , 'Normal' : 1 , 'Grass' : 0.5 , 'Poison' : 2 ,  # les autres types
@@ -219,7 +250,10 @@ class Fairy (Pokemon) :
     Cette classe contient les pokemons de type fée
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 2 , 'Dragon' : 2 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,    # les faiblesse du pokemon envers
                            'Bug' : 1 , 'Normal' : 1 , 'Grass' : 1 , 'Poison' : 0.5 ,    # les autres types
@@ -242,7 +276,10 @@ class Fighting (Pokemon) :
     Cette classe contient les pokemons de type combat
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 0.5 , 'Ice' : 2 ,    # les faiblesse du pokemon envers
                            'Bug' : 0.5 , 'Normal' : 2 , 'Grass' : 1 , 'Poison' : 0.5 ,  # les autres types
@@ -265,7 +302,10 @@ class Psychic (Pokemon) :
     Cette classe contient les pokemons de type psy
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 2 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,      # les faiblesse du pokemon envers
                            'Bug' : 1 , 'Normal' : 1 , 'Grass' : 1 , 'Poison' : 2 ,      # les autres types
@@ -288,7 +328,10 @@ class Ice (Pokemon) :
     Cette classe contient les pokemons de type glace
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 2 , 'Water' : 0.5 ,              # Ici on reseigne les forces et
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 0.5 ,  # les faiblesse du pokemon envers 
                            'Bug' : 2 , 'Normal' : 1 , 'Grass' : 2 , 'Poison' : 1 ,      # les autres types
@@ -311,7 +354,10 @@ class Flying (Pokemon) :
     Cette classe contient les pokemons de type vol
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 2 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 0.5 , 'Fairy' : 1 , 'Ice' : 1 ,    # les faiblesse du pokemon envers
                            'Bug' : 2 , 'Normal' : 1 , 'Grass' : 2 , 'Poison' : 1 ,      # les autres types
@@ -334,7 +380,10 @@ class Dragon (Pokemon) :
     Cette classe contient les pokemons de type dragon
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 2 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 0 , 'Ice' : 1 ,      # les faiblesse du pokemon envers 
                            'Bug' : 1 , 'Normal' : 1 , 'Grass' : 1 , 'Poison' : 1 ,      # les autres types
@@ -357,7 +406,10 @@ class Ghost (Pokemon) :
     Cette classe contient les pokemons de type spectre
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,      # les faiblesse du pokemon envers 
                            'Bug' : 1 , 'Normal' : 0 , 'Grass' : 2 , 'Poison' : 1 ,      # les autres types
@@ -380,7 +432,10 @@ class Rock (Pokemon) :
     Cette classe contient les pokemons de type roche
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 0.5 , 'Dragon' : 1 , 'Water' : 1 ,              # Ici on reseigne les forces et
                            'Fire' : 2 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 2 ,      # les faiblesse du pokemon envers 
                            'Bug' : 2 , 'Normal' : 1 , 'Grass' : 1 , 'Poison' : 1 ,      # les autres types
@@ -403,7 +458,10 @@ class Grass (Pokemon) :
     Cette classe contient les pokemons de type plante
     '''
     
-    def __init__(self):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10)):
+        
+        super().__init__(self,name,hp,atk,deff,sp_atk,sp_deff,speed,position = (-10,-10))
+        
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 0.5 , 'Water' : 2 ,                  # Ici on reseigne les forces et
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,        # les faiblesse du pokemon envers
                            'Bug' : 0.5 , 'Normal' : 1 , 'Grass' : 0.5 , 'Poison' : 0.5 ,    # les autres types
