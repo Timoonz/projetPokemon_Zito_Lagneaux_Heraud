@@ -4,6 +4,8 @@ from abc import abstractmethod,ABCMeta
 
 # Classes
 
+### Classes Pokemon
+
 class Pokemon (metaclass = ABCMeta):
     
     '''
@@ -475,3 +477,56 @@ class Grass (Pokemon) :
         '''
         
         pass
+
+
+
+### Classe Joueur
+        
+class Joueur :
+    
+    '''
+    Cette classe contient les principale caractéristique du joueur
+    '''
+    
+    def __init__(self, name, rayon_de_vision, inventaire_de_pokemon) :
+        
+        self.name = name
+        self.rdv = rayon_de_vision
+        self.inventaire = inventaire_de_pokemon
+        
+    
+    def se_deplacer (self) :
+        
+        pass
+    
+    
+    def chanter(self) :
+        
+        print("Un jour je serais le meilleur dresseur")
+        
+        
+    def choisir_un_pokemon (self) :
+        
+        Inventaire = []
+        
+        for i in self.inventaire :
+            Inventaire.append(i.name)
+        
+        print(Inventaire)
+        
+        print("\nVeuillez-choisir votre pokemon")
+        
+        pokemon_choisi = input()
+        
+        i=0
+        
+        while pokemon_choisi != self.inventaire[i].name :
+            i+=1
+            
+        return self.inventaire[i]
+    
+    
+    def detecter(self, Pokemon_map) :
+        
+            
+
