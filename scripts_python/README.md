@@ -2,4 +2,4 @@
 
 ## Pour les attaques neutres
 La formule utilisée est la suivante :
-$$\frac{attaque * 10}{deffense enemi}$$
+$$\frac{attaque * 15}{deffense enemi}$$
