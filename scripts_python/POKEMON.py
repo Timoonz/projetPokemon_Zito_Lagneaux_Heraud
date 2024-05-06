@@ -42,24 +42,24 @@ class Pokemon (metaclass = ABCMeta):
         return txt
     
         
-    def attaque_neutre(self, enemi):
+    def attaque_neutre(self, ennemi):
         
         '''
         Cette méthode permet à un pokemon d'effectuer une attaque neutre
         '''
 
-        degats = int(self.atk * 15 /self.deff)
+        degats = int(self.atk * 15 /ennemi.deff)
         
         return degats
     
-    # @abstractmethod
-    # def attaque_speciale(self) :
+    @abstractmethod
+    def attaque_speciale(self) :
         
-    #     '''
-    #     Cette fonction définit l'attaque spéciale d'un pokemon
-    #     '''
+        '''
+        Cette fonction définit l'attaque spéciale d'un pokemon
+        '''
         
-    #     pass
+        pass
 
 
 
@@ -81,13 +81,15 @@ class Fire (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 0.5 , 'Ground' : 1 , 'Ghost' : 1 , 
                            'Flying' : 1}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type feu
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
 
@@ -107,13 +109,15 @@ class Water (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 2 , 'Ground' : 2 , 'Ghost' : 1 , 
                            'Flying' : 1}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
 
         '''
         Cette méthode définit l'attaque spécale des pokemons de type eau
         '''        
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
     
@@ -133,13 +137,15 @@ class Bug (Pokemon) :
                            'Psychic' : 2 , 'Rock' : 1 , 'Ground' : 1 , 'Ghost' : 0.5 , 
                            'Flying' : 0.5}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
  
         '''
         Cette méthode définit l'attaque spécale des pokemons de type insecte
         '''        
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
 
@@ -160,13 +166,15 @@ class Normal (Pokemon) :
                            'Flying' : 1}
         
         
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
  
         '''
         Cette méthode définit l'attaque spécale des pokemons de type insecte
         '''        
         
-        pass        
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats        
    
     
 class Electric (Pokemon) :
@@ -185,13 +193,15 @@ class Electric (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 0.5 , 'Ground' : 0 , 'Ghost' : 1 , 
                            'Flying' : 2}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type Electric
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
 
@@ -211,13 +221,15 @@ class Poison (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 0.5 , 'Ground' : 0.5 , 'Ghost' : 0.5 , 
                            'Flying' : 1}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type poison
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
 
@@ -237,13 +249,15 @@ class Ground (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 2 , 'Ground' : 1 , 'Ghost' : 1 , 
                            'Flying' : 0}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type sol
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
 
@@ -263,13 +277,15 @@ class Fairy (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 1 , 'Ground' : 1 , 'Ghost' : 1 , 
                            'Flying' : 1}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type fée
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
     
@@ -289,13 +305,15 @@ class Fighting (Pokemon) :
                            'Psychic' : 0.5 , 'Rock' : 2 , 'Ground' : 1 , 'Ghost' : 0 , 
                            'Flying' : 0.5}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type combat
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
 
@@ -315,13 +333,15 @@ class Psychic (Pokemon) :
                            'Psychic' : 0.5 , 'Rock' : 1 , 'Ground' : 1 , 'Ghost' : 1 , 
                            'Flying' : 1}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type psy
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
 
@@ -341,13 +361,15 @@ class Ice (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 1 , 'Ground' : 2 , 'Ghost' : 1 , 
                            'Flying' : 2}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type glace
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
     
@@ -367,13 +389,15 @@ class Flying (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 0.5 , 'Ground' : 1 , 'Ghost' : 1 , 
                            'Flying' : 1}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type vol
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
     
@@ -393,13 +417,15 @@ class Dragon (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 1 , 'Ground' : 1 , 'Ghost' : 1 , 
                            'Flying' : 1}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type dragon
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
     
@@ -419,13 +445,15 @@ class Ghost (Pokemon) :
                            'Psychic' : 2 , 'Rock' : 1 , 'Ground' : 1 , 'Ghost' : 2 , 
                            'Flying' : 1}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type spectre
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
     
@@ -445,13 +473,15 @@ class Rock (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 1 , 'Ground' : 0.5 , 'Ghost' : 1 , 
                            'Flying' : 2}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type roche
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
     
@@ -471,13 +501,15 @@ class Grass (Pokemon) :
                            'Psychic' : 1 , 'Rock' : 2 , 'Ground' : 2 , 'Ghost' : 1 , 
                            'Flying' : 0.5}
     
-    def attaque_speciale ():
+    def attaque_speciale (self, ennemi):
         
         '''
         Cette méthode définit l'attaque spécale des pokemons de type plante
         '''
         
-        pass
+        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[type(ennemi)]
+        
+        return degats
 
 
 
