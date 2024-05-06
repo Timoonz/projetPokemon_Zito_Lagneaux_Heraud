@@ -65,12 +65,16 @@ class Ui_MainWindow(object):
         self.Poekmon_Face = QtWidgets.QLabel(self.centralwidget)
         self.Poekmon_Face.setGeometry(QtCore.QRect(450, 110, 81, 81))
         self.Poekmon_Face.setText("")
-        self.Poekmon_Face.setPixmap(QtGui.QPixmap("../QtDesigner/Métamorph-RFVF.png"))
+        
+        
+        self.Poekmon_Face.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+"ditto"+"_Face.png"))
         self.Poekmon_Face.setObjectName("Poekmon_Face")
         self.Pokemon_dos = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_dos.setGeometry(QtCore.QRect(250, 170, 81, 81))
         self.Pokemon_dos.setText("")
-        self.Pokemon_dos.setPixmap(QtGui.QPixmap("../QtDesigner/Métamorph-DOS.png"))
+        
+        
+        self.Pokemon_dos.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+"squirtle"+"_Dos.png"))
         self.Pokemon_dos.setObjectName("Pokemon_dos")
         self.Pokemon_Face_Nom = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_Face_Nom.setGeometry(QtCore.QRect(360, 80, 81, 31))
