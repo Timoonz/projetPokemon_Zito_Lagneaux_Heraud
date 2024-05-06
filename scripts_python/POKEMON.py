@@ -27,7 +27,7 @@ class Pokemon (metaclass = ABCMeta):
         self.sp_deff = sp_deff
         self.speed = speed
         self.legendary = legendary
-        self.position = position # On définit comme position (-10,-10) pour les pokemons aquis
+        self.position = position # On définit comme position [-10,-10] pour les pokemons aquis
                                  # pour les différencier des pokemons sauvages
 
     def __str__(self) :
@@ -511,24 +511,25 @@ class Joueur :
         
     def choisir_un_pokemon (self) :
         
-        Inventaire = []
+        # Inventaire = []
         
-        for i in self.inventaire :
-            Inventaire.append(i.name)
+        # for i in self.inventaire :
+        #     Inventaire.append(i.name)
         
-        print(Inventaire)
+        # print(Inventaire)
         
-        print("\nVeuillez-choisir votre pokemon")
+        # print("\nVeuillez-choisir votre pokemon")
         
-        pokemon_choisi = input()
+        # pokemon_choisi = input()
         
-        i=0
+        # i=0
         
-        while pokemon_choisi != self.inventaire[i].name :
-            i+=1
+        # while pokemon_choisi != self.inventaire[i].name :
+        #     i+=1
             
-        return self.inventaire[i]
-    
+        # return self.inventaire[i]
+        
+        pass
     
     def detecter(self, Pokemon_map) :
         
