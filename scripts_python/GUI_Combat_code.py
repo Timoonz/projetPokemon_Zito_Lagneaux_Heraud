@@ -37,10 +37,11 @@ class Choix(QDialog):
             self.ui = Ui_Dialog()
             self.ui.setupUi(self)
 
-    # def accept(self):
-    #     crsTxt = self.ui.crs.text()
-    #     self.parent().Liste_pokemons.addItem(crsTxt)
-    #     super().accept()
+    def accept(self):
+        crsTxt = self.ui.Liste_pokemons.selectedItems()[0].text()
+        # joueur.inventaire.append(crsTxt)
+        print(crsTxt)
+        super().accept()
 
     
 
