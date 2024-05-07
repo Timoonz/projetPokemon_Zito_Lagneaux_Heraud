@@ -172,7 +172,7 @@ class Ui_MainWindow(object):
         self.fuite_bouton.setText(_translate("MainWindow", "Fuir"))
         self.Chgt_pokemon_bouton.setText(_translate("MainWindow", "Changer de Pokemon"))
         self.Pokemon_Face_Nom.setText(_translate("MainWindow", pokemon1.name))
-        self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP" + str(pokemon1.hp) + "/" + str(pokemon1.hp )))
+        self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp )))
         self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP ??/??"))
         self.Pokemon_Dos_Nom.setText(_translate("MainWindow", pokemon2))
 # import Pokemon_face_rc
