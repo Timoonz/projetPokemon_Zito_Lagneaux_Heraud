@@ -583,7 +583,7 @@ class Joueur :
         # Vérifiation d'une possibilité de detection de pokémon
         for i in range(len(Distance)) :
             if Distance[i]<= self.rdv :
-                return Pokemon_sauvage[i]       # Si un pokemon est dans le champs de vision du joueur, ce pokemon est renvoyé
+                return True, Pokemon_sauvage[i]       # Si un pokemon est dans le champs de vision du joueur, ce pokemon est renvoyé
         
         return False
     
