@@ -16,7 +16,9 @@ from Extraction_des_donnes import *
 
 
 pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
-pokemon2 = 'squirtle'
+pokemon2 = joueur.inventaire[2]
+
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -80,7 +82,7 @@ class Ui_MainWindow(object):
         self.Pokemon_dos.setText("")
         
         
-        self.Pokemon_dos.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+pokemon2+"_Dos.png"))
+        self.Pokemon_dos.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+pokemon2.name+"_Dos.png"))
         self.Pokemon_dos.setObjectName("Pokemon_dos")
         self.Pokemon_Face_Nom = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_Face_Nom.setGeometry(QtCore.QRect(360, 80, 81, 31))
@@ -173,6 +175,6 @@ class Ui_MainWindow(object):
         self.Chgt_pokemon_bouton.setText(_translate("MainWindow", "Changer de Pokemon"))
         self.Pokemon_Face_Nom.setText(_translate("MainWindow", pokemon1.name))
         self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp )))
-        self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP ??/??"))
-        self.Pokemon_Dos_Nom.setText(_translate("MainWindow", pokemon2))
+        self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(pokemon2.hp) + "/" + str(pokemon2.hp )))
+        self.Pokemon_Dos_Nom.setText(_translate("MainWindow", pokemon2.name))
 # import Pokemon_face_rc

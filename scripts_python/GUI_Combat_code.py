@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 from GUI_Choix_pokemon import *
 
 
-
+pokemon2 = joueur.inventaire[2]
 
 
 class Combat(QMainWindow, Ui_MainWindow):
@@ -26,6 +26,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         dlg.exec()
         
     def fuite(self):
+        print("Vous prenez la fuite !")
         self.close()
 
 class Choix(QDialog):
@@ -38,9 +39,9 @@ class Choix(QDialog):
             self.ui.setupUi(self)
 
     def accept(self):
-        crsTxt = self.ui.Liste_pokemons.selectedItems()[0].text()
+        pokemon2 = self.ui.Liste_pokemons.selectedItems()[0].text()
         # joueur.inventaire.append(crsTxt)
-        print(crsTxt)
+        print(pokemon2)
         super().accept()
 
     
