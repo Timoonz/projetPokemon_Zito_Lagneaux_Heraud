@@ -9,8 +9,14 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from POKEMON import *
+from Extraction_des_donnes import *
 
 
+
+
+pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
+pokemon2 = 'squirtle'
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -67,20 +73,20 @@ class Ui_MainWindow(object):
         self.Poekmon_Face.setText("")
         
         
-        self.Poekmon_Face.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+"ditto"+"_Face.png"))
+        self.Poekmon_Face.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+pokemon1.name+"_Face.png"))
         self.Poekmon_Face.setObjectName("Poekmon_Face")
         self.Pokemon_dos = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_dos.setGeometry(QtCore.QRect(250, 170, 81, 81))
         self.Pokemon_dos.setText("")
         
         
-        self.Pokemon_dos.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+"squirtle"+"_Dos.png"))
+        self.Pokemon_dos.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+pokemon2+"_Dos.png"))
         self.Pokemon_dos.setObjectName("Pokemon_dos")
         self.Pokemon_Face_Nom = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_Face_Nom.setGeometry(QtCore.QRect(360, 80, 81, 31))
         self.Pokemon_Face_Nom.setObjectName("Pokemon_Face_Nom")
         self.Pokemon_Face_HP = QtWidgets.QLabel(self.centralwidget)
-        self.Pokemon_Face_HP.setGeometry(QtCore.QRect(380, 110, 47, 13))
+        self.Pokemon_Face_HP.setGeometry(QtCore.QRect(350, 110, 60, 13))
         self.Pokemon_Face_HP.setObjectName("Pokemon_Face_HP")
         self.Pokemon_Dos_HP = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_Dos_HP.setGeometry(QtCore.QRect(170, 210, 47, 13))
@@ -165,8 +171,8 @@ class Ui_MainWindow(object):
         self.Att_sp_bouton.setText(_translate("MainWindow", "Attaque spéciale"))
         self.fuite_bouton.setText(_translate("MainWindow", "Fuir"))
         self.Chgt_pokemon_bouton.setText(_translate("MainWindow", "Changer de Pokemon"))
-        self.Pokemon_Face_Nom.setText(_translate("MainWindow", "NOM_POKEMON"))
-        self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP ??/??"))
+        self.Pokemon_Face_Nom.setText(_translate("MainWindow", pokemon1.name))
+        self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP" + str(pokemon1.hp) + "/" + str(pokemon1.hp )))
         self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP ??/??"))
-        self.Pokemon_Dos_Nom.setText(_translate("MainWindow", "NOM_POKEMON"))
+        self.Pokemon_Dos_Nom.setText(_translate("MainWindow", pokemon2))
 # import Pokemon_face_rc

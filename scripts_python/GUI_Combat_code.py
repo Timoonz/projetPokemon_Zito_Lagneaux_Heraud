@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 from GUI_Choix_pokemon import *
 
 
-joueur = Joueur('joueur',[0,0])
+
 
 
 class Combat(QMainWindow, Ui_MainWindow):

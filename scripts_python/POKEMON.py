@@ -585,8 +585,8 @@ class Joueur :
             if Distance[i]<= self.rdv :
                 return True, Pokemon_sauvage[i]       # Si un pokemon est dans le champs de vision du joueur, ce pokemon est renvoyé
         
-        return False
+        return False, Pokemon_sauvage[635]
     
     
-            
+joueur = Joueur('joueur',[0,0])            
 
