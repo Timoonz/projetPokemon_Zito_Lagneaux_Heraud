@@ -15,8 +15,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         
             super(Combat, self).__init__(parent)
             self.setupUi(self)
-            # self.att_neutre_bouton.clicked.connect(joueur.choisir_un_pokemon().attaque_neutre())
-            # self.att_sp_bouton.clicked.connect(joueur.choisir_un_pokemon.attaque_speciale())
+            self.att_neutre_bouton.clicked.connect(self.attaque_neutre)
+            self.Att_sp_bouton.clicked.connect(self.attaque_speciale)
             self.fuite_bouton.clicked.connect(self.fuite)
             self.Chgt_pokemon_bouton.clicked.connect(self.Chgt_pokemon)
             
@@ -28,6 +28,41 @@ class Combat(QMainWindow, Ui_MainWindow):
     def fuite(self):
         print("Vous prenez la fuite !")
         self.close()
+        
+    def attaque_neutre(self) :
+        
+        degats = pokemon2.attaque_neutre(pokemon1)
+        pokemon1.hp -= degats
+        print(pokemon1.hp)
+        
+        if pokemon1.hp <= 0 :
+            pokemon1.position = [-10,-10]
+            joueur.inventaire.append(pokemon1)
+            print(joueur.inventaire)
+            Pokemon_sauvage.remove(pokemon1)
+        
+        else :
+            degats = pokemon1.attaque_neutre(pokemon2)
+            pokemon2.hp -= degats
+            print(pokemon2.hp)
+            
+        
+    def attaque_speciale(self) :
+        degats = pokemon2.attaque_speciale(pokemon1)
+        pokemon1.hp -= degats
+        print(pokemon1.hp)
+        
+        if pokemon1.hp <= 0 :
+            pokemon1.position = [-10,-10]
+            joueur.inventaire.append(pokemon1)
+            print(joueur.inventaire)
+            Pokemon_sauvage.remove(pokemon1)
+        
+        else :
+            degats = pokemon1.attaque_speciale(pokemon2)
+            pokemon2.hp -= degats
+            print(pokemon2.hp)        
+            
 
 class Choix(QDialog):
     
