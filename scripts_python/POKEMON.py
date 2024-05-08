@@ -14,7 +14,7 @@ class Pokemon (metaclass = ABCMeta):
     et contient leurs attributs et comportements généraux
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
         '''
         Création des attributs de chaque pokemon, independamment de leur type
@@ -28,7 +28,7 @@ class Pokemon (metaclass = ABCMeta):
         self.sp_deff = sp_deff
         self.speed = speed
         self.legendary = legendary
-        self.position = position # On définit comme position [-10,-10] pour les pokemons aquis
+        self.position = position # On définira comme position [-10,-10] pour les pokemons aquis
                                  # pour les différencier des pokemons sauvages
 
     def __str__(self) :
@@ -72,9 +72,9 @@ class Fire (Pokemon) :
     Cette classe contient les pokemons de type feu
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 0.5 , 'Water' : 0.5 ,            # Ici on reseigne les forces et  
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 2 ,    # les faiblesse du pokemon envers
@@ -100,9 +100,9 @@ class Water (Pokemon) :
     Cette classe contient les pokemons de type eau
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 0.5 , 'Water' : 0.5 ,            # Ici on reseigne les forces et
                            'Fire' : 2 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,      # les faiblesse du pokemon envers
@@ -128,9 +128,9 @@ class Bug (Pokemon) :
     Cette classe contient les pokemons de type insecte
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 0.5 , 'Dragon' : 1 , 'Water' : 1 ,              # Ici on reseigne les forces et
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 0.5 , 'Ice' : 1 ,  # les faiblesse du pokemon envers
@@ -156,9 +156,9 @@ class Normal (Pokemon) :
     Cette classe contient les pokemons de type normal
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,      # les faiblesse du pokemon envers
@@ -184,9 +184,9 @@ class Electric (Pokemon) :
     Cette classe contient les pokemons de type electrik
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 0.5 , 'Water' : 2 ,              # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 0.5 , 'Fairy' : 1 , 'Ice' : 1 ,    # les faiblesse du pokemon envers
@@ -212,9 +212,9 @@ class Poison (Pokemon) :
     Cette classe contient les pokemons de type poison
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                    # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 2 , 'Ice' : 1 ,          # les faiblesse du pokemon envers
@@ -240,9 +240,9 @@ class Ground (Pokemon) :
     Cette classe contient les pokemons de type sol
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 2 , 'Electric' : 2 , 'Fairy' : 1 , 'Ice' : 0 ,      # les faiblesse du pokemon envers
@@ -268,9 +268,9 @@ class Fairy (Pokemon) :
     Cette classe contient les pokemons de type fée
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 2 , 'Dragon' : 2 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,    # les faiblesse du pokemon envers
@@ -296,9 +296,9 @@ class Fighting (Pokemon) :
     Cette classe contient les pokemons de type combat
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 0.5 , 'Ice' : 2 ,    # les faiblesse du pokemon envers
@@ -324,9 +324,9 @@ class Psychic (Pokemon) :
     Cette classe contient les pokemons de type psy
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 2 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,      # les faiblesse du pokemon envers
@@ -352,9 +352,9 @@ class Ice (Pokemon) :
     Cette classe contient les pokemons de type glace
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 2 , 'Water' : 0.5 ,              # Ici on reseigne les forces et
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 0.5 ,  # les faiblesse du pokemon envers 
@@ -380,9 +380,9 @@ class Flying (Pokemon) :
     Cette classe contient les pokemons de type vol
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 2 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 0.5 , 'Fairy' : 1 , 'Ice' : 1 ,    # les faiblesse du pokemon envers
@@ -408,9 +408,9 @@ class Dragon (Pokemon) :
     Cette classe contient les pokemons de type dragon
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 2 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 0 , 'Ice' : 1 ,      # les faiblesse du pokemon envers 
@@ -436,9 +436,9 @@ class Ghost (Pokemon) :
     Cette classe contient les pokemons de type spectre
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 1 , 'Water' : 1 ,                # Ici on reseigne les forces et
                            'Fire' : 1 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,      # les faiblesse du pokemon envers 
@@ -464,9 +464,9 @@ class Rock (Pokemon) :
     Cette classe contient les pokemons de type roche
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 0.5 , 'Dragon' : 1 , 'Water' : 1 ,              # Ici on reseigne les forces et
                            'Fire' : 2 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 2 ,      # les faiblesse du pokemon envers 
@@ -492,9 +492,9 @@ class Grass (Pokemon) :
     Cette classe contient les pokemons de type plante
     '''
     
-    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10]):
+    def __init__(self,name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position):
         
-        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position = [-10,-10])
+        super().__init__(name,hp,atk,deff,sp_atk,sp_deff,legendary,speed,position)
         
         self.Faiblesses = {'Fighting' : 1 , 'Dragon' : 0.5 , 'Water' : 2 ,                  # Ici on reseigne les forces et
                            'Fire' : 0.5 , 'Electric' : 1 , 'Fairy' : 1 , 'Ice' : 1 ,        # les faiblesse du pokemon envers
