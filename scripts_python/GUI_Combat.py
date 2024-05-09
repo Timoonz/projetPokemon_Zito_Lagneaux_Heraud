@@ -11,13 +11,42 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from POKEMON import *
 from Extraction_des_donnes import *
-
+from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 
 
 
 pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
-pokemon2 = joueur.inventaire[2]
+pokemon2 = joueur.inventaire[1]
 
+
+
+
+class Choix(QDialog):
+    
+    
+    def __init__(self, parent=None):
+        
+            super(Choix, self).__init__(parent)
+            self.ui = Ui_Dialog()
+            self.ui.setupUi(self)
+
+    # def accept(self):
+        
+    #     global pokemon2
+        
+    #     pokemon2 = self.ui.Liste_pokemons.selectedItems()[0].text()
+    #     # joueur.inventaire.append(crsTxt)    
+    #     print(pokemon2)
+        
+    #     QtGui.QApplication.processEvents()
+    #     super().accept()
+    #     print(pokemon2)
+        
+        
+        
+        
+        
+        
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -75,14 +104,14 @@ class Ui_MainWindow(object):
         self.Poekmon_Face.setText("")
         
         
-        self.Poekmon_Face.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+pokemon1.name+"_Face.png"))
+        self.Poekmon_Face.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/" + pokemon1.name.lower() + "_Face.png"))
         self.Poekmon_Face.setObjectName("Poekmon_Face")
         self.Pokemon_dos = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_dos.setGeometry(QtCore.QRect(250, 170, 81, 81))
         self.Pokemon_dos.setText("")
         
         
-        self.Pokemon_dos.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/"+pokemon2.name+"_Dos.png"))
+        self.Pokemon_dos.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/" + joueur.pokemon_choisi.name.lower() + "_Dos.png"))
         self.Pokemon_dos.setObjectName("Pokemon_dos")
         self.Pokemon_Face_Nom = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_Face_Nom.setGeometry(QtCore.QRect(360, 80, 81, 31))
@@ -168,7 +197,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Combat Pokémon"))
         self.att_neutre_bouton.setText(_translate("MainWindow", "Attaque neutre"))
         self.Att_sp_bouton.setText(_translate("MainWindow", "Attaque spéciale"))
         self.fuite_bouton.setText(_translate("MainWindow", "Fuir"))
@@ -176,5 +205,7 @@ class Ui_MainWindow(object):
         self.Pokemon_Face_Nom.setText(_translate("MainWindow", pokemon1.name))
         self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp )))
         self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(pokemon2.hp) + "/" + str(pokemon2.hp )))
-        self.Pokemon_Dos_Nom.setText(_translate("MainWindow", pokemon2.name))
+        self.Pokemon_Dos_Nom.setText(_translate("MainWindow", joueur.pokemon_choisi.name))
 # import Pokemon_face_rc
+
+

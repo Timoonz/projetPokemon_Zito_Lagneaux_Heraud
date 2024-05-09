@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 from GUI_Choix_pokemon import *
 
 
-pokemon2 = joueur.inventaire[2]
+
 
 
 class Combat(QMainWindow, Ui_MainWindow):
@@ -40,7 +40,9 @@ class Choix(QDialog):
 
     def accept(self):
         pokemon2 = self.ui.Liste_pokemons.selectedItems()[0].text()
-        # joueur.inventaire.append(crsTxt)
+        for i in joueur.inventaire : 
+            if pokemon2 == i.name :
+                joueur.pokemon_choisi = i
         print(pokemon2)
         super().accept()
 
