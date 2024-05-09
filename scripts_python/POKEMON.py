@@ -22,6 +22,7 @@ class Pokemon (metaclass = ABCMeta):
         
         self.name = name
         self.hp = hp
+        self.hp_init = hp
         self.atk = atk
         self.deff = deff
         self.sp_atk = sp_atk
