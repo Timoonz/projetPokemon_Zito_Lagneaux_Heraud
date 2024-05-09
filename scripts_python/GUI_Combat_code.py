@@ -2,6 +2,7 @@ from GUI_Combat import *
 from POKEMON import *
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
+from PyQt5.QtGui import QPixmap
 from GUI_Choix_pokemon import *
 
 
@@ -24,6 +25,7 @@ class Combat(QMainWindow, Ui_MainWindow):
     def Chgt_pokemon(self):
         dlg = Choix(self)
         dlg.exec()
+        self.update()
         
     def fuite(self):
         print("Vous prenez la fuite !")
@@ -63,6 +65,10 @@ class Combat(QMainWindow, Ui_MainWindow):
             pokemon2.hp -= degats
             print(pokemon2.hp)        
             
+    def update(self):
+        image_path = "../Sprites_Pokemons/" + joueur.pokemon_choisi.name.lower() + "_Dos.png"
+        pixmap = QPixmap(image_path)
+        self.Pokemon_dos.setPixmap(pixmap)
 
 class Choix(QDialog):
     
