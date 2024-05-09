@@ -196,6 +196,8 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+        hp_init_pokemon1 = pokemon1.hp
+        hp_init_pokemon2 = pokemon2.hp
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Combat Pokémon"))
         self.att_neutre_bouton.setText(_translate("MainWindow", "Attaque neutre"))
@@ -203,9 +205,15 @@ class Ui_MainWindow(object):
         self.fuite_bouton.setText(_translate("MainWindow", "Fuir"))
         self.Chgt_pokemon_bouton.setText(_translate("MainWindow", "Changer de Pokemon"))
         self.Pokemon_Face_Nom.setText(_translate("MainWindow", pokemon1.name))
+
         self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp )))
         self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(pokemon2.hp) + "/" + str(pokemon2.hp )))
         self.Pokemon_Dos_Nom.setText(_translate("MainWindow", joueur.pokemon_choisi.name))
+
+        # self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(hp_init_pokemon1)))
+        # self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(pokemon2.hp) + "/" + str(hp_init_pokemon2)))
+        # self.Pokemon_Dos_Nom.setText(_translate("MainWindow", pokemon2.name))
+
 # import Pokemon_face_rc
 
 
