@@ -207,7 +207,7 @@ class Ui_MainWindow(object):
         self.Pokemon_Face_Nom.setText(_translate("MainWindow", pokemon1.name))
 
         self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp )))
-        self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(pokemon2.hp) + "/" + str(pokemon2.hp )))
+        self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp)))
         self.Pokemon_Dos_Nom.setText(_translate("MainWindow", joueur.pokemon_choisi.name))
 
         # self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(hp_init_pokemon1)))

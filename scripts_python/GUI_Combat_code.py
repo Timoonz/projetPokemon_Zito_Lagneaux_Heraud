@@ -69,7 +69,9 @@ class Combat(QMainWindow, Ui_MainWindow):
         image_path = "../Sprites_Pokemons/" + joueur.pokemon_choisi.name.lower() + "_Dos.png"
         pixmap = QPixmap(image_path)
         self.Pokemon_dos.setPixmap(pixmap)
-
+        self.Pokemon_Dos_Nom.setText(joueur.pokemon_choisi.name)
+        self.Pokemon_Dos_HP.setText( "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp))
+        
 class Choix(QDialog):
     
     
