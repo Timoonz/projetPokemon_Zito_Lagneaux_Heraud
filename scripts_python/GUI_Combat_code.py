@@ -33,7 +33,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         
     def attaque_neutre(self) :
         
-        degats = pokemon2.attaque_neutre(pokemon1)
+        
+        degats = int(pokemon2.attaque_neutre(pokemon1))
         pokemon1.hp -= degats
         print(pokemon1.hp)
         
@@ -44,13 +45,13 @@ class Combat(QMainWindow, Ui_MainWindow):
             Pokemon_sauvage.remove(pokemon1)
         
         else :
-            degats = pokemon1.attaque_neutre(pokemon2)
+            degats = int(pokemon1.attaque_neutre(pokemon2))
             pokemon2.hp -= degats
             print(pokemon2.hp)
-            
+        self.update()   
         
     def attaque_speciale(self) :
-        degats = pokemon2.attaque_speciale(pokemon1)
+        degats = int(pokemon2.attaque_speciale(pokemon1))
         pokemon1.hp -= degats
         print(pokemon1.hp)
         
@@ -61,16 +62,18 @@ class Combat(QMainWindow, Ui_MainWindow):
             Pokemon_sauvage.remove(pokemon1)
         
         else :
-            degats = pokemon1.attaque_speciale(pokemon2)
+            degats = int(pokemon1.attaque_speciale(pokemon2))
             pokemon2.hp -= degats
             print(pokemon2.hp)        
-            
+        self.update()
+        
     def update(self):
         image_path = "../Sprites_Pokemons/" + joueur.pokemon_choisi.name.lower() + "_Dos.png"
         pixmap = QPixmap(image_path)
         self.Pokemon_dos.setPixmap(pixmap)
         self.Pokemon_Dos_Nom.setText(joueur.pokemon_choisi.name)
         self.Pokemon_Dos_HP.setText( "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp))
+        self.Pokemon_Face_HP.setText( "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp))
         
 class Choix(QDialog):
     
@@ -82,11 +85,11 @@ class Choix(QDialog):
             self.ui.setupUi(self)
 
     def accept(self):
-        pokemon2 = self.ui.Liste_pokemons.selectedItems()[0].text()
+        pokemon = self.ui.Liste_pokemons.selectedItems()[0].text()
         for i in joueur.inventaire : 
-            if pokemon2 == i.name :
+            if pokemon == i.name :
                 joueur.pokemon_choisi = i
-        print(pokemon2)
+        print(joueur.pokemon_choisi)
         super().accept()
 
     

@@ -16,7 +16,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 
 
 pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
-pokemon2 = joueur.inventaire[1]
+pokemon2 = joueur.pokemon_choisi
 
 
 
