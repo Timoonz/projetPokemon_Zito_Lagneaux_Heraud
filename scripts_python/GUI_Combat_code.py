@@ -39,6 +39,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         print(pokemon1.hp)
         
         if pokemon1.hp <= 0 :
+            pokemon1.hp = 0
             pokemon1.position = [-10,-10]
             joueur.inventaire.append(pokemon1)
             print(joueur.inventaire)
@@ -48,6 +49,10 @@ class Combat(QMainWindow, Ui_MainWindow):
             degats = int(pokemon1.attaque_neutre(pokemon2))
             joueur.pokemon_choisi.hp -= degats
             print(joueur.pokemon_choisi.hp)
+            
+        if joueur.pokemon_choisi.hp<= 0 :
+            joueur.pokemon_choisi.hp = 0
+            
         self.update()   
         
     def attaque_speciale(self) :
@@ -64,7 +69,11 @@ class Combat(QMainWindow, Ui_MainWindow):
         else :
             degats = int(pokemon1.attaque_speciale(pokemon2))
             joueur.pokemon_choisi.hp -= degats
-            print(joueur.pokemon_choisi.hp)        
+            print(joueur.pokemon_choisi.hp)  
+        
+        if joueur.pokemon_choisi.hp<= 0 :
+            joueur.pokemon_choisi.hp = 0
+            
         self.update()
         
     def update(self):
