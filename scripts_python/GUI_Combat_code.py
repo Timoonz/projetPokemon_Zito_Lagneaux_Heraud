@@ -61,6 +61,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         print(pokemon1.hp)
         
         if pokemon1.hp <= 0 :
+            pokemon1.hp = 0
             pokemon1.position = [-10,-10]
             joueur.inventaire.append(pokemon1)
             print(joueur.inventaire)
