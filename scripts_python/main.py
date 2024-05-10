@@ -21,7 +21,6 @@ class Game(QMainWindow) :
     def keyReleaseEvent(self, event) : 
         if event.key() == Qt.Key_Up :
             self.map.move("up")
-            self.player.sprite.setPixmap(QPixmap("player_ow_up.png"))
         if event.key() == Qt.Key_Down : 
             self.map.move("down")
         if event.key() == Qt.Key_Left : 
@@ -36,8 +35,8 @@ class Game(QMainWindow) :
         self.setWindowTitle("Pokéming")
         
         #Ajout de la carte et du sprite du perso principal
-        self.map = Map(self, "map_abi.jpeg")
-        self.player = Player(self, "player_ow_standing.png")
+        self.map = Map(self, "../sprites_ow/map_abi.jpeg")
+        self.player = Player(self, "../sprites_ow/player_ow_standing.png")
         
         
      
