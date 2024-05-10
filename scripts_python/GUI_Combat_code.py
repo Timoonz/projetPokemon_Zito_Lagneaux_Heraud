@@ -46,8 +46,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         else :
             degats = int(pokemon1.attaque_neutre(pokemon2))
-            pokemon2.hp -= degats
-            print(pokemon2.hp)
+            joueur.pokemon_choisi.hp -= degats
+            print(joueur.pokemon_choisi.hp)
         self.update()   
         
     def attaque_speciale(self) :
@@ -63,8 +63,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         else :
             degats = int(pokemon1.attaque_speciale(pokemon2))
-            pokemon2.hp -= degats
-            print(pokemon2.hp)        
+            joueur.pokemon_choisi.hp -= degats
+            print(joueur.pokemon_choisi.hp)        
         self.update()
         
     def update(self):
@@ -72,8 +72,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         pixmap = QPixmap(image_path)
         self.Pokemon_dos.setPixmap(pixmap)
         self.Pokemon_Dos_Nom.setText(joueur.pokemon_choisi.name)
-        self.Pokemon_Dos_HP.setText( "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp))
-        self.Pokemon_Face_HP.setText( "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp))
+        self.Pokemon_Dos_HP.setText( "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp_init))
+        self.Pokemon_Face_HP.setText( "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp_init))
         
 class Choix(QDialog):
     
