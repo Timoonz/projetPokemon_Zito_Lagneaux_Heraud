@@ -25,22 +25,22 @@ class Map() :
         pos = self.map.geometry()
         
         if direction == "up" :
-            pos.translate(0, 50)
+            pos.translate(0, 25)
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up.png"))
             
         if direction == "down" :
-            pos.translate(0, -50)
+            pos.translate(0, -25)
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_down.png"))
             
         if direction == "left" :
-            pos.translate(50, 0)
+            pos.translate(25, 0)
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left.png"))
             
         if direction == "right" :
-            pos.translate(-50, 0)
+            pos.translate(-25, 0)
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right.png"))
         
