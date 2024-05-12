@@ -9,7 +9,9 @@ Created on Mon May  6 11:31:09 2024
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QLabel
 from PyQt5.QtGui import QPixmap
-
+from POKEMON import *
+from Extraction_des_donnes import *
+from GUI_Combat_code import *
 
 class Map() : 
     
@@ -27,56 +29,46 @@ class Map() :
         
         if direction == "up" :
             pos.translate(0, 25)
-            
+            joueur.position[1] += 25
+            print(joueur.position)
+            if joueur.detecter(Pokemon_sauvage)[0] == True:
+                joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
+                app = QApplication(sys.argv)
+                mainWin = Combat()
+                mainWin.show()
+                app.exec_()
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up.png"))
             
         if direction == "down" :
             pos.translate(0, -25)
-            # joueur.position[1] -= 25
-            # print(joueur.position)
-            # if joueur.detecter(Pokemon_sauvage)[0] == True:
-            #     self.close()
-            #     joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
-            #     app = QApplication(sys.argv)
-            #     mainWin = Combat()
-            #     mainWin.show()
-            #     app.exec_()
-            # joueur.detecter(Pokemon_sauvage)
+            joueur.position[1] -= 25
+            print(joueur.position)
+            joueur.detecter(Pokemon_sauvage)
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_down.png"))
             
         if direction == "left" :
             pos.translate(25, 0)
-            # joueur.position[0] -= 25
-            # print(joueur.position)
-            # if joueur.detecter(Pokemon_sauvage)[0] == True:
-            #     self.close()
-            #     joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
-            #     app = QApplication(sys.argv)
-            #     mainWin = Combat()
-            #     mainWin.show()
-            #     app.exec_()
-            # joueur.detecter(Pokemon_sauvage)
+            joueur.position[0] -= 25
+            print(joueur.position)
+            joueur.detecter(Pokemon_sauvage)
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left.png"))
             
         if direction == "right" :
             pos.translate(-25, 0)
-            # joueur.position[0] += 25
-            # print(joueur.position)
-            # if joueur.detecter(Pokemon_sauvage)[0] == True:
-            #     self.close()
-            #     joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
-            #     app = QApplication(sys.argv)
-            #     mainWin = Combat()
-            #     mainWin.show()
-            #     app.exec_()
-            # joueur.detecter(Pokemon_sauvage)
+            joueur.position[0] += 25
+            print(joueur.position)
+            joueur.detecter(Pokemon_sauvage)
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right.png"))
             
-        
+        def test(self):
+            
+            if joueur.detecter() == True:
+                print ("ça marche")
+                self.close()
         
 class Player() : 
     
