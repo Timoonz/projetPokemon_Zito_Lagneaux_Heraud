@@ -24,22 +24,22 @@ class Game(QMainWindow) :
         if event.key() == Qt.Key_Up :
             self.map.move("up")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
-                joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
+                pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
                 self.open_fight()
         if event.key() == Qt.Key_Down : 
             self.map.move("down")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
-                joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
+                pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
                 self.open_fight()
         if event.key() == Qt.Key_Left : 
             self.map.move("left")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
-                joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
+                pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
                 self.open_fight()
         if event.key() == Qt.Key_Right : 
             self.map.move("right")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
-                joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
+                pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
                 self.open_fight()
     
     def setupUi(self) : 
