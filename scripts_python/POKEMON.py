@@ -638,7 +638,7 @@ class Joueur :
         
         # Création d'une liste contenant toutes les distances entre le joueur et les pokemons sauvages
         Distance = []
-        print ('lancement detection')
+       
         for i in Pokemon_sauvage :
             
             d = np.sqrt((self.position[0]-i.position[0])**2 + (self.position[1]-i.position[1])**2 )
@@ -648,7 +648,7 @@ class Joueur :
         # Vérifiation d'une possibilité de detection de pokémon
         for i in range(len(Distance)) :
             if Distance[i]<= self.rdv :
-                print("Pokemon detecté")
+                
                 return True, Pokemon_sauvage[i]       # Si un pokemon est dans le champs de vision du joueur, ce pokemon est renvoyé
         
         return False, Pokemon_sauvage[635]

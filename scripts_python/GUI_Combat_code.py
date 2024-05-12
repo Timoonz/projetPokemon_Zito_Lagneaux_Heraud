@@ -44,6 +44,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             joueur.inventaire.append(pokemon1)
             print(joueur.inventaire)
             Pokemon_sauvage.remove(pokemon1)
+            self.close()
         
         else :
             degats = int(pokemon1.attaque_neutre(pokemon2))
@@ -66,6 +67,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             joueur.inventaire.append(pokemon1)
             print(joueur.inventaire)
             Pokemon_sauvage.remove(pokemon1)
+            self.close()
         
         else :
             degats = int(pokemon1.attaque_speciale(pokemon2))
