@@ -29,38 +29,29 @@ class Map() :
         
         if direction == "up" :
             pos.translate(0, 25)
-            joueur.position[1] += 25
-            print(joueur.position)
-            if joueur.detecter(Pokemon_sauvage)[0] == True:
-                joueur.pokemon_choisi = joueur.detecter(Pokemon_sauvage)[1]
-                app = QApplication(sys.argv)
-                mainWin = Combat()
-                mainWin.show()
-                app.exec_()
+            joueur.position[1] += 0.5
+            
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up.png"))
             
         if direction == "down" :
             pos.translate(0, -25)
-            joueur.position[1] -= 25
-            print(joueur.position)
-            joueur.detecter(Pokemon_sauvage)
+            joueur.position[1] -= 0.5
+            
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_down.png"))
             
         if direction == "left" :
             pos.translate(25, 0)
-            joueur.position[0] -= 25
-            print(joueur.position)
-            joueur.detecter(Pokemon_sauvage)
+            joueur.position[0] -= 0.5
+            
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left.png"))
             
         if direction == "right" :
             pos.translate(-25, 0)
-            joueur.position[0] += 25
-            print(joueur.position)
-            joueur.detecter(Pokemon_sauvage)
+            joueur.position[0] += 0.5
+            
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right.png"))
             

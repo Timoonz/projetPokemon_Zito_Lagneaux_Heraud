@@ -4,7 +4,7 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 from PyQt5.QtGui import QPixmap
 from GUI_Choix_pokemon import *
-
+from Extraction_des_donnes import *
 
 
 
@@ -104,7 +104,7 @@ class Choix(QDialog):
 
     
 
-def run_app():
+def Run_app():
         app = QApplication(sys.argv)
         mainWin = Combat()
         mainWin.show()
@@ -112,8 +112,6 @@ def run_app():
         
         
 
-# if joueur.detecter() == True:
-#     run_app()
 
 
 
@@ -125,7 +123,7 @@ if __name__ == "__main__":
     #     mainWin = Window()
     #     mainWin.show()
     #     app.exec_()
-    run_app()
+    Run_app()
     
     
     
