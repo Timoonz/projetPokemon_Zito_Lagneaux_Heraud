@@ -41,8 +41,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         if pokemon1.hp <= 0 :
             pokemon1.hp = 0
             pokemon1.position = [-10,-10]
+            pokemon1.hp = pokemon1.hp_init
             joueur.inventaire.append(pokemon1)
-            print(joueur.inventaire)
             Pokemon_sauvage.remove(pokemon1)
             self.close()
         
@@ -64,8 +64,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         if pokemon1.hp <= 0 :
             pokemon1.hp = 0
             pokemon1.position = [-10,-10]
+            pokemon1.hp = pokemon1.hp_init
             joueur.inventaire.append(pokemon1)
-            print(joueur.inventaire)
             Pokemon_sauvage.remove(pokemon1)
             self.close()
         
