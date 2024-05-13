@@ -586,7 +586,7 @@ class Joueur :
     Cette classe contient les principale caractéristique du joueur
     '''
     
-    def __init__(self, name, position, rayon_de_vision = 0.25, pokemon_choisi = Grass('Bulbasaur',45,49,49,65,65,45,False, [-10,-10]),
+    def __init__(self, name, position, rayon_de_vision = 0.25,pokemon_adverse = None, pokemon_choisi = Grass('Bulbasaur',45,49,49,65,65,45,False, [-10,-10]),
                  inventaire_de_pokemon = [Fire('Charmander',39,52,43,60,50,65,False, [-10,-10]),    # Nous avons choisi Salamèche, Bulbizarre et Carapuce
                                           Grass('Bulbasaur',45,49,49,65,65,45,False, [-10,-10]),    # comme pokemons de départ
                                           Water('Squirtle',44,48,65,50,64,43,False, [-10,-10])]) :
@@ -633,7 +633,7 @@ class Joueur :
     def detecter(self, Pokemon_sauvage) :
         
         '''
-        Cette fonction renvoit un Pokmeon sir le joueur peut le voir
+        Cette fonction renvoit un Pokmeon si le joueur peut le voir
         '''
         
         
@@ -646,14 +646,16 @@ class Joueur :
             
             d = np.sqrt((self.position[0]-i.position[0])**2 + (self.position[1]-i.position[1])**2 )
             
-            Distance.append(d)
+            if d not in Distance :
+                
+                Distance.append(d)
         
         
         
         # Vérifiation d'une possibilité de detection de pokémon
         for i in range(len(Distance)) :
-            if Distance[i]<= self.rdv and Distance[i] == min(Distance) :
-                print(Pokemon_sauvage[i].name)
+            if Distance[i]<= self.rdv  :
+                # print(Pokemon_sauvage[i].name)
                 return True, Pokemon_sauvage[i]       # Si un pokemon est dans le champs de vision du joueur, ce pokemon est renvoyé
         
         return False, Pokemon_sauvage[635]

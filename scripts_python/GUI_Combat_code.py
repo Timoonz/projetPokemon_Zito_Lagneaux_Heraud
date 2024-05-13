@@ -34,62 +34,64 @@ class Combat(QMainWindow, Ui_MainWindow):
     def attaque_neutre(self) :
         
         
-        degats = int(pokemon2.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1]))
-        joueur.detecter(Pokemon_sauvage)[1].hp -= degats
-        print(pokemon1.hp)
+        degats = int(joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1]))
+        joueur.pokemon_adverse.hp -= degats
+        print(joueur.pokemon_adverse.hp)
         
-        if joueur.detecter(Pokemon_sauvage)[1].hp <= 0 :
-            joueur.detecter(Pokemon_sauvage)[1].hp = 0
-            joueur.detecter(Pokemon_sauvage)[1].position = [-10,-10]
-            joueur.detecter(Pokemon_sauvage)[1].hp = joueur.detecter(Pokemon_sauvage)[1].hp_init
-            joueur.inventaire.append(joueur.detecter(Pokemon_sauvage)[1])
-            Pokemon_sauvage.remove(joueur.detecter(Pokemon_sauvage)[1])
+        if joueur.pokemon_adverse.hp <= 0 :
+            joueur.pokemon_adverse.hp = 0
+            joueur.pokemon_adverse.position = [-10,-10]
+            joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
+            joueur.inventaire.append(joueur.pokemon_adverse)
+            Pokemon_sauvage.remove(joueur.pokemon_adverse)
             self.close()
         
         else :
-            degats = int(joueur.detecter(Pokemon_sauvage)[1].attaque_neutre(pokemon2))
+            degats = int(joueur.pokemon_adverse.attaque_neutre(joueur.pokemon_choisi))
             joueur.pokemon_choisi.hp -= degats
             print(joueur.pokemon_choisi.hp)
             
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
+            self.close()
             
         self.update()   
         
     def attaque_speciale(self) :
-        degats = int(pokemon2.attaque_speciale(joueur.detecter(Pokemon_sauvage)[1]))
-        joueur.detecter(Pokemon_sauvage)[1].hp -= degats
-        print(joueur.detecter(Pokemon_sauvage)[1].hp)
+        degats = int(joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse))
+        joueur.pokemon_adverse.hp -= degats
+        print(joueur.pokemon_adverse.hp)
         
-        if joueur.detecter(Pokemon_sauvage)[1].hp <= 0 :
-            joueur.detecter(Pokemon_sauvage)[1].hp = 0
-            joueur.detecter(Pokemon_sauvage)[1].position = [-10,-10]
-            joueur.detecter(Pokemon_sauvage)[1].hp = joueur.detecter(Pokemon_sauvage)[1].hp_init
-            joueur.inventaire.append(joueur.detecter(Pokemon_sauvage)[1])
-            Pokemon_sauvage.remove(joueur.detecter(Pokemon_sauvage)[1])
+        if joueur.pokemon_adverse.hp <= 0 :
+            joueur.pokemon_adverse.hp = 0
+            joueur.pokemon_adverse.position = [-10,-10]
+            joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
+            joueur.inventaire.append(joueur.pokemon_adverse)
+            Pokemon_sauvage.remove(joueur.pokemon_adverse)
             self.close()
         
         else :
-            degats = int(joueur.detecter(Pokemon_sauvage)[1].attaque_speciale(pokemon2))
+            degats = int(joueur.pokemon_adverse.attaque_speciale(joueur.pokemon_choisi))
             joueur.pokemon_choisi.hp -= degats
             print(joueur.pokemon_choisi.hp)  
         
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
+            self.close()
             
         self.update()
         
     def update(self):
         image_path = "../Sprites_Pokemons/" + joueur.pokemon_choisi.name.lower() + "_Dos.png"
         pixmap = QPixmap(image_path)
-        image_path2 = "../Sprites_Pokemons/" + joueur.detecter(Pokemon_sauvage)[1].name.lower() + "_Face.png"
+        image_path2 = "../Sprites_Pokemons/" + joueur.pokemon_adverse.name.lower() + "_Face.png"
         pixmap2 = QPixmap(image_path2)
         self.Pokemon_dos.setPixmap(pixmap)
         self.Poekmon_Face.setPixmap(pixmap2)
         self.Pokemon_Dos_Nom.setText(joueur.pokemon_choisi.name)
-        self.Pokemon_Face_Nom.setText(joueur.detecter(Pokemon_sauvage)[1].name)
+        self.Pokemon_Face_Nom.setText(joueur.pokemon_adverse.name)
         self.Pokemon_Dos_HP.setText( "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp_init))
-        self.Pokemon_Face_HP.setText( "HP " + str(joueur.detecter(Pokemon_sauvage)[1].hp) + "/" + str(joueur.detecter(Pokemon_sauvage)[1].hp_init))
+        self.Pokemon_Face_HP.setText( "HP " + str(joueur.pokemon_adverse.hp) + "/" + str(joueur.pokemon_adverse.hp_init))
         
 class Choix(QDialog):
     
@@ -105,7 +107,7 @@ class Choix(QDialog):
         for i in joueur.inventaire : 
             if pokemon == i.name :
                 joueur.pokemon_choisi = i
-        print(joueur.pokemon_choisi)
+        # print(joueur.pokemon_choisi)
         super().accept()
 
     

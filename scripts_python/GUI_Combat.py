@@ -15,8 +15,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 
 
 
-pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
-print(pokemon1)
+
 pokemon2 = joueur.pokemon_choisi
 
 
@@ -203,7 +202,7 @@ class Ui_MainWindow(object):
         self.Att_sp_bouton.setText(_translate("MainWindow", "Attaque spéciale"))
         self.fuite_bouton.setText(_translate("MainWindow", "Fuir"))
         self.Chgt_pokemon_bouton.setText(_translate("MainWindow", "Changer de Pokemon"))
-        self.Pokemon_Face_Nom.setText(_translate("MainWindow", pokemon1.name))
+        self.Pokemon_Face_Nom.setText(_translate("MainWindow", joueur.detecter(Pokemon_sauvage)[1].name))
 
         self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(joueur.detecter(Pokemon_sauvage)[1].hp) + "/" + str(joueur.detecter(Pokemon_sauvage)[1].hp_init )))
         self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp_init)))

@@ -26,6 +26,7 @@ class Game(QMainWindow) :
         if event.key() == Qt.Key_Up :
             self.map.move("up")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
+                
                
                 self.open_fight()
                 
@@ -64,7 +65,8 @@ class Game(QMainWindow) :
         
         
     def open_fight(self):
-      
+        
+        joueur.pokemon_adverse = joueur.detecter(Pokemon_sauvage)[1]
         self.fight = Combat()
         self.fight.update()
         self.fight.show()
