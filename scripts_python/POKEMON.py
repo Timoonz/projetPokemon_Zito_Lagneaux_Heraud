@@ -52,7 +52,7 @@ class Pokemon (metaclass = ABCMeta):
 
         degats = int(self.atk * 15 /ennemi.deff)
         
-        return degats
+        return int(degats)
     
     @abstractmethod
     def attaque_speciale(self) :
@@ -95,7 +95,7 @@ class Fire (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
 
@@ -127,7 +127,7 @@ class Water (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
     
@@ -159,7 +159,7 @@ class Bug (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
 
@@ -191,7 +191,7 @@ class Normal (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats        
+        return int(degats)        
    
     
 class Electric (Pokemon) :
@@ -222,7 +222,7 @@ class Electric (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
 
@@ -254,7 +254,7 @@ class Poison (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
 
@@ -286,7 +286,7 @@ class Ground (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
 
@@ -318,7 +318,7 @@ class Fairy (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
     
@@ -350,7 +350,7 @@ class Fighting (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
 
@@ -382,7 +382,7 @@ class Psychic (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
 
@@ -414,7 +414,7 @@ class Ice (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
     
@@ -446,7 +446,7 @@ class Flying (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
     
@@ -478,7 +478,7 @@ class Dragon (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
     
@@ -510,7 +510,7 @@ class Ghost (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
     
@@ -542,7 +542,7 @@ class Rock (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
     
@@ -574,7 +574,7 @@ class Grass (Pokemon) :
         
         degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
-        return degats
+        return int(degats)
 
 
 

@@ -1,3 +1,4 @@
+import random as rd
 from GUI_Combat import *
 from POKEMON import *
 import sys
@@ -8,7 +9,22 @@ from Extraction_des_donnes import *
 
 pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
 
-
+def attaque_ennemi(pokemon_sauvage, pokemon_choisi) :
+    
+    CM = pokemon_sauvage.faiblesses[pokemon_choisi.type_pokemon()]
+    
+    if CM == 2 :
+        return pokemon_sauvage.attaque_speciale(pokemon_choisi)
+    elif CM == 0.5 :
+        return pokemon_sauvage.attaque_neutre(pokemon_choisi)
+    else :
+        alea = rd.randint(0,1)
+        
+        if alea == 0 :
+            return pokemon_sauvage.attaque_speciale(pokemon_choisi)
+        else :
+            return pokemon_sauvage.attaque_neutre(pokemon_choisi)
+        
 class Combat(QMainWindow, Ui_MainWindow):
     
     
@@ -31,10 +47,11 @@ class Combat(QMainWindow, Ui_MainWindow):
         print("Vous prenez la fuite !")
         self.close()
         
+        
     def attaque_neutre(self) :
         
         
-        degats = int(joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1]))
+        degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
         joueur.pokemon_adverse.hp -= degats
         print(joueur.pokemon_adverse.hp)
         
@@ -47,7 +64,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             self.close()
         
         else :
-            degats = int(joueur.pokemon_adverse.attaque_neutre(joueur.pokemon_choisi))
+            degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             joueur.pokemon_choisi.hp -= degats
             print(joueur.pokemon_choisi.hp)
             
@@ -60,7 +77,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         self.update()   
         
     def attaque_speciale(self) :
-        degats = int(joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse))
+        degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
         joueur.pokemon_adverse.hp -= degats
         print(joueur.pokemon_adverse.hp)
         
@@ -73,7 +90,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             self.close()
         
         else :
-            degats = int(joueur.pokemon_adverse.attaque_speciale(joueur.pokemon_choisi))
+            degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             joueur.pokemon_choisi.hp -= degats
             print(joueur.pokemon_choisi.hp)  
         
