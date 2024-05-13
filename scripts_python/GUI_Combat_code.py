@@ -7,7 +7,6 @@ from PyQt5.QtGui import QPixmap
 from GUI_Choix_pokemon import *
 from Extraction_des_donnes import *
 
-pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
 
 def attaque_ennemi(pokemon_sauvage, pokemon_choisi) :
     
@@ -43,11 +42,9 @@ class Combat(QMainWindow, Ui_MainWindow):
         dlg.exec()
         degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
         joueur.pokemon_choisi.hp -= degats
-        print(joueur.pokemon_choisi.hp)
         self.update()
         
     def fuite(self):
-        print("Vous prenez la fuite !")
         self.close()
         
         
@@ -56,7 +53,6 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
         joueur.pokemon_adverse.hp -= degats
-        print(joueur.pokemon_adverse.hp)
         
         if joueur.pokemon_adverse.hp <= 0 :
             joueur.pokemon_adverse.hp = 0
@@ -69,7 +65,6 @@ class Combat(QMainWindow, Ui_MainWindow):
         else :
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             joueur.pokemon_choisi.hp -= degats
-            print(joueur.pokemon_choisi.hp)
             
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
@@ -82,7 +77,6 @@ class Combat(QMainWindow, Ui_MainWindow):
     def attaque_speciale(self) :
         degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
         joueur.pokemon_adverse.hp -= degats
-        print(joueur.pokemon_adverse.hp)
         
         if joueur.pokemon_adverse.hp <= 0 :
             joueur.pokemon_adverse.hp = 0
@@ -95,7 +89,6 @@ class Combat(QMainWindow, Ui_MainWindow):
         else :
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             joueur.pokemon_choisi.hp -= degats
-            print(joueur.pokemon_choisi.hp)  
         
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
