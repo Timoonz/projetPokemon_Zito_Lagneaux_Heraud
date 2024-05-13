@@ -64,9 +64,11 @@ class Game(QMainWindow) :
         
         
     def open_fight(self):
+      
         self.fight = Combat()
+        self.fight.update()
         self.fight.show()
-         
+     
         
         
         

@@ -16,6 +16,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 
 
 pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
+print(pokemon1)
 pokemon2 = joueur.pokemon_choisi
 
 
@@ -104,7 +105,7 @@ class Ui_MainWindow(object):
         self.Poekmon_Face.setText("")
         
         
-        self.Poekmon_Face.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/" + pokemon1.name.lower() + "_Face.png"))
+        self.Poekmon_Face.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/" + joueur.detecter(Pokemon_sauvage)[1].name.lower() + "_Face.png"))
         self.Poekmon_Face.setObjectName("Poekmon_Face")
         self.Pokemon_dos = QtWidgets.QLabel(self.centralwidget)
         self.Pokemon_dos.setGeometry(QtCore.QRect(250, 170, 81, 81))
@@ -204,7 +205,7 @@ class Ui_MainWindow(object):
         self.Chgt_pokemon_bouton.setText(_translate("MainWindow", "Changer de Pokemon"))
         self.Pokemon_Face_Nom.setText(_translate("MainWindow", pokemon1.name))
 
-        self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(pokemon1.hp_init )))
+        self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(joueur.detecter(Pokemon_sauvage)[1].hp) + "/" + str(joueur.detecter(Pokemon_sauvage)[1].hp_init )))
         self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp_init)))
         self.Pokemon_Dos_Nom.setText(_translate("MainWindow", joueur.pokemon_choisi.name))
 
