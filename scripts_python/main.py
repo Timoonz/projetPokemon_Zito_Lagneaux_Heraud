@@ -23,31 +23,31 @@ class Game(QMainWindow) :
         self.fight = None
         
     def keyReleaseEvent(self, event) : 
-        if event.key() == Qt.Key_Up :
+        if event.key() == Qt.Key_Up and not event.isAutoRepeat():
             self.map.move("up")
-            if joueur.detecter(Pokemon_sauvage)[0] == True:
+            if joueur.detecter(Pokemon_sauvage)[0]:
                 
                
                 self.open_fight()
                 
                 
-        if event.key() == Qt.Key_Down : 
+        if event.key() == Qt.Key_Down and not event.isAutoRepeat(): 
             self.map.move("down")
-            if joueur.detecter(Pokemon_sauvage)[0] == True:
+            if joueur.detecter(Pokemon_sauvage)[0]:
                 
                 self.open_fight()
                 
                 
-        if event.key() == Qt.Key_Left : 
+        if event.key() == Qt.Key_Left and not event.isAutoRepeat(): 
             self.map.move("left")
-            if joueur.detecter(Pokemon_sauvage)[0] == True:
+            if joueur.detecter(Pokemon_sauvage)[0]:
                 
                 self.open_fight()
                 
                 
-        if event.key() == Qt.Key_Right : 
+        if event.key() == Qt.Key_Right and not event.isAutoRepeat(): 
             self.map.move("right")
-            if joueur.detecter(Pokemon_sauvage)[0] == True:
+            if joueur.detecter(Pokemon_sauvage)[0]:
                 
                 self.open_fight()
                 
