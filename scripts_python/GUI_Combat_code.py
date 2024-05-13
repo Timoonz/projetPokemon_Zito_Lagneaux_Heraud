@@ -53,6 +53,8 @@ class Combat(QMainWindow, Ui_MainWindow):
             
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
+            self.update()
+            self.Chgt_pokemon()
             
             
         self.update()   
@@ -77,6 +79,9 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
+            self.update()
+            self.Chgt_pokemon()
+            
             
             
         self.update()
