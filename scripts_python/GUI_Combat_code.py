@@ -53,7 +53,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
-            self.close()
+            
             
         self.update()   
         
@@ -77,7 +77,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
-            self.close()
+            
             
         self.update()
         
@@ -92,6 +92,10 @@ class Combat(QMainWindow, Ui_MainWindow):
         self.Pokemon_Face_Nom.setText(joueur.pokemon_adverse.name)
         self.Pokemon_Dos_HP.setText( "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp_init))
         self.Pokemon_Face_HP.setText( "HP " + str(joueur.pokemon_adverse.hp) + "/" + str(joueur.pokemon_adverse.hp_init))
+       
+    def reset_hp(self):
+        for i in joueur.inventaire:
+            i.hp = i.hp_init
         
 class Choix(QDialog):
     

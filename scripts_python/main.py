@@ -66,8 +66,10 @@ class Game(QMainWindow) :
         
     def open_fight(self):
         
+        
         joueur.pokemon_adverse = joueur.detecter(Pokemon_sauvage)[1]
         self.fight = Combat()
+        self.fight.reset_hp()
         self.fight.update()
         self.fight.show()
      
