@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from POKEMON import *
 from Extraction_des_donnes import *
-from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
+from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog , QProgressBar
 
 
 
@@ -42,7 +42,13 @@ class Choix(QDialog):
     #     super().accept()
     #     print(pokemon2)
         
+class ProgressBar(QProgressBar):
+ 
+    def __init__(self, *args, **kwargs):
+        super(ProgressBar, self).__init__(*args, **kwargs)
+        self.setValue(100)
         
+               
         
         
         
@@ -66,7 +72,16 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         
-     
+        self.barre_hp_adverse = QProgressBar(self)
+        self.barre_hp_adverse.setGeometry(350, 110, 100, 15)
+        self.barre_hp_adverse.setValue(100)
+        
+        
+        self.barre_hp_choisi = QProgressBar(self)
+        self.barre_hp_choisi.setGeometry(100, 170, 100, 15)
+        self.barre_hp_choisi.setValue(100)
+        
+        
         
         
         self.att_neutre_bouton = QtWidgets.QPushButton(self.centralwidget)
@@ -119,44 +134,45 @@ class Ui_MainWindow(object):
         self.Background.setObjectName("Background") 
         
         self.Poekmon_Face = QtWidgets.QLabel(self.centralwidget)
-        self.Poekmon_Face.setGeometry(QtCore.QRect(450, 110, 81, 81))
+        self.Poekmon_Face.setGeometry(QtCore.QRect(410, 110, 81, 81))
         self.Poekmon_Face.setText("")
         self.Poekmon_Face.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/" + joueur.detecter(Pokemon_sauvage)[1].name.lower() + "_Face.png"))
         self.Poekmon_Face.setObjectName("Poekmon_Face")
         
         
         self.Pokemon_dos = QtWidgets.QLabel(self.centralwidget)
-        self.Pokemon_dos.setGeometry(QtCore.QRect(250, 170, 81, 81))
+        self.Pokemon_dos.setGeometry(QtCore.QRect(160, 170, 81, 81))
         self.Pokemon_dos.setText("")
         self.Pokemon_dos.setPixmap(QtGui.QPixmap("../Sprites_Pokemons/" + joueur.pokemon_choisi.name.lower() + "_Dos.png"))
         self.Pokemon_dos.setObjectName("Pokemon_dos")
         
         self.Pokemon_Face_Nom = QtWidgets.QLabel(self.centralwidget)
-        self.Pokemon_Face_Nom.setGeometry(QtCore.QRect(360, 80, 81, 31))
+        self.Pokemon_Face_Nom.setGeometry(QtCore.QRect(350, 80, 81, 31))
         self.Pokemon_Face_Nom.setObjectName("Pokemon_Face_Nom")
         
         self.Pokemon_Face_HP = QtWidgets.QLabel(self.centralwidget)
-        self.Pokemon_Face_HP.setGeometry(QtCore.QRect(350, 110, 60, 13))
+        self.Pokemon_Face_HP.setGeometry(QtCore.QRect(350, 130, 60, 13))
         self.Pokemon_Face_HP.setObjectName("Pokemon_Face_HP")
         
         self.Pokemon_Dos_HP = QtWidgets.QLabel(self.centralwidget)
-        self.Pokemon_Dos_HP.setGeometry(QtCore.QRect(170, 210, 47, 13))
+        self.Pokemon_Dos_HP.setGeometry(QtCore.QRect(100, 190, 47, 13))
         self.Pokemon_Dos_HP.setObjectName("Pokemon_Dos_HP")
         
         self.Pokemon_Dos_Nom = QtWidgets.QLabel(self.centralwidget)
-        self.Pokemon_Dos_Nom.setGeometry(QtCore.QRect(150, 180, 81, 31))
+        self.Pokemon_Dos_Nom.setGeometry(QtCore.QRect(100, 140, 81, 31))
         self.Pokemon_Dos_Nom.setObjectName("Pokemon_Dos_Nom")
         
-        # self.label = QtWidgets.QLabel(self.centralwidget)
-        # self.label.setGeometry(QtCore.QRect(0, 340, 471, 221))
-        # self.label.setText("")
-        # self.label.setPixmap(QtGui.QPixmap("../QtDesigner/depositphotos_537327850-stock-illustration-green-grass-meadow-small-white.jpg"))
-        # self.label.setObjectName("label")
-        # self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        # self.label_2.setGeometry(QtCore.QRect(440, 340, 471, 221))
-        # self.label_2.setText("")
-        # self.label_2.setPixmap(QtGui.QPixmap("../QtDesigner/depositphotos_537327850-stock-illustration-green-grass-meadow-small-white.jpg"))
-        # self.label_2.setObjectName("label_2")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(0, 340, 471, 221))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("../QtDesigner/depositphotos_537327850-stock-illustration-green-grass-meadow-small-white.jpg"))
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(440, 340, 471, 221))
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap("../QtDesigner/depositphotos_537327850-stock-illustration-green-grass-meadow-small-white.jpg"))
+        self.label_2.setObjectName("label_2")
+        
         # self.label_3 = QtWidgets.QLabel(self.centralwidget)
         # self.label_3.setGeometry(QtCore.QRect(-10, 60, 391, 291))
         # self.label_3.setText("")
@@ -234,6 +250,10 @@ class Ui_MainWindow(object):
         # self.Pokemon_Face_HP.setText(_translate("MainWindow", "HP " + str(pokemon1.hp) + "/" + str(hp_init_pokemon1)))
         # self.Pokemon_Dos_HP.setText(_translate("MainWindow", "HP " + str(pokemon2.hp) + "/" + str(hp_init_pokemon2)))
         # self.Pokemon_Dos_Nom.setText(_translate("MainWindow", pokemon2.name))
+
+
+
+
 
 # import Pokemon_face_rc
 

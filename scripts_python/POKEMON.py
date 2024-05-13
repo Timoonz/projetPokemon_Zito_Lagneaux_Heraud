@@ -596,7 +596,7 @@ class Joueur :
         self.pokemon_choisi = pokemon_choisi
         self.position = position
         self.inventaire = inventaire_de_pokemon
-        
+       
     
     def se_deplacer (self) :
         

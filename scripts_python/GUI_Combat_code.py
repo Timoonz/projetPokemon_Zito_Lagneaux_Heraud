@@ -41,6 +41,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         dlg = Choix(self)
         dlg.exec()
         degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+        self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
         joueur.pokemon_choisi.hp -= degats
         self.update()
         
@@ -52,7 +53,9 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         
         degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
+        self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp-degats)*100/joueur.pokemon_adverse.hp))
         joueur.pokemon_adverse.hp -= degats
+        
         
         if joueur.pokemon_adverse.hp <= 0 :
             joueur.pokemon_adverse.hp = 0
@@ -64,6 +67,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         else :
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
             joueur.pokemon_choisi.hp -= degats
             
         if joueur.pokemon_choisi.hp<= 0 :
@@ -76,6 +80,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
     def attaque_speciale(self) :
         degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
+        self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp-degats)*100/joueur.pokemon_adverse.hp))
         joueur.pokemon_adverse.hp -= degats
         
         if joueur.pokemon_adverse.hp <= 0 :
@@ -88,6 +93,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         else :
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
             joueur.pokemon_choisi.hp -= degats
         
         if joueur.pokemon_choisi.hp<= 0 :
@@ -110,7 +116,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         self.Pokemon_Face_Nom.setText(joueur.pokemon_adverse.name)
         self.Pokemon_Dos_HP.setText( "HP " + str(joueur.pokemon_choisi.hp) + "/" + str(joueur.pokemon_choisi.hp_init))
         self.Pokemon_Face_HP.setText( "HP " + str(joueur.pokemon_adverse.hp) + "/" + str(joueur.pokemon_adverse.hp_init))
-       
+        
     def reset_hp(self):
         for i in joueur.inventaire:
             i.hp = i.hp_init

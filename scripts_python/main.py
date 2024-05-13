@@ -69,6 +69,8 @@ class Game(QMainWindow) :
         
         joueur.pokemon_adverse = joueur.detecter(Pokemon_sauvage)[1]
         self.fight = Combat()
+        self.fight.barre_hp_adverse.setValue(100)
+        self.fight.barre_hp_choisi.setValue(100)
         self.fight.reset_hp()
         self.fight.update()
         self.fight.show()
