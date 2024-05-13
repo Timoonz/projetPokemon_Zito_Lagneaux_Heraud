@@ -41,6 +41,9 @@ class Combat(QMainWindow, Ui_MainWindow):
     def Chgt_pokemon(self):
         dlg = Choix(self)
         dlg.exec()
+        degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+        joueur.pokemon_choisi.hp -= degats
+        print(joueur.pokemon_choisi.hp)
         self.update()
         
     def fuite(self):
