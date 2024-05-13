@@ -14,6 +14,8 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPixmap
 from GUI_Combat_code import *
 
+
+
 class Game(QMainWindow) :
     def __init__(self) : 
         QMainWindow.__init__(self)
@@ -24,23 +26,31 @@ class Game(QMainWindow) :
         if event.key() == Qt.Key_Up :
             self.map.move("up")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
-                pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
+               
                 self.open_fight()
+                
+                
         if event.key() == Qt.Key_Down : 
             self.map.move("down")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
-                pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
+                
                 self.open_fight()
+                
+                
         if event.key() == Qt.Key_Left : 
             self.map.move("left")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
-                pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
+                
                 self.open_fight()
+                
+                
         if event.key() == Qt.Key_Right : 
             self.map.move("right")
             if joueur.detecter(Pokemon_sauvage)[0] == True:
-                pokemon1 = joueur.detecter(Pokemon_sauvage)[1]
+                
                 self.open_fight()
+                
+                
     
     def setupUi(self) : 
          
