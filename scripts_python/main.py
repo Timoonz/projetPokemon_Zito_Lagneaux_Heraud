@@ -13,6 +13,7 @@ from PyQt5.QtCore import Qt, QEvent
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPixmap
 from GUI_Combat_code import *
+from Inventory import *
 
 
 
@@ -50,6 +51,9 @@ class Game(QMainWindow) :
             if joueur.detecter(Pokemon_sauvage)[0]:
                 
                 self.open_fight()
+        
+        if event.key() == Qt.Key_I :
+            self.open_inventory()
                 
                 
     
@@ -74,7 +78,12 @@ class Game(QMainWindow) :
         self.fight.reset_hp()
         self.fight.update()
         self.fight.show()
-     
+        
+        
+    def open_inventory(self) :
+        
+        self.inventory = Ui_Inventory()
+        self.inventory.show()
         
         
         
