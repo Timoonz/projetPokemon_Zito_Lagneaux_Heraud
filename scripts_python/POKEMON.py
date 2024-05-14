@@ -50,7 +50,7 @@ class Pokemon (metaclass = ABCMeta):
         Cette méthode permet à un pokemon d'effectuer une attaque neutre
         '''
 
-        degats = int(self.atk * 15 /ennemi.deff)
+        degats = int(self.atk * 10 /ennemi.deff)
         
         return int(degats)
     
@@ -93,7 +93,7 @@ class Fire (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type feu
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -125,7 +125,7 @@ class Water (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type eau
         '''        
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -157,7 +157,7 @@ class Bug (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type insecte
         '''        
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -189,7 +189,7 @@ class Normal (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type insecte
         '''        
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)        
    
@@ -220,7 +220,7 @@ class Electric (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type Electric
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -252,7 +252,7 @@ class Poison (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type poison
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -284,7 +284,7 @@ class Ground (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type sol
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -316,7 +316,7 @@ class Fairy (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type fée
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -348,7 +348,7 @@ class Fighting (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type combat
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -380,7 +380,7 @@ class Psychic (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type psy
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -412,7 +412,7 @@ class Ice (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type glace
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -444,7 +444,7 @@ class Flying (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type vol
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -476,7 +476,7 @@ class Dragon (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type dragon
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -508,7 +508,7 @@ class Ghost (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type spectre
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -540,7 +540,7 @@ class Rock (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type roche
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
@@ -572,7 +572,7 @@ class Grass (Pokemon) :
         Cette méthode définit l'attaque spécale des pokemons de type plante
         '''
         
-        degats = (self.sp_atk * 15 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
+        degats = (self.sp_atk * 10 / ennemi.sp_deff) * self.faiblesses[ennemi.type_pokemon()]
         
         return int(degats)
 
