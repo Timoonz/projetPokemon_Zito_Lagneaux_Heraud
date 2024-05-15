@@ -10,7 +10,7 @@ import sys
 
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import Qt, QEvent
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QListWidget
 from PyQt5.QtGui import QPixmap
 from GUI_Combat_code import *
 from Inventory import *
@@ -80,8 +80,8 @@ class Game(QMainWindow) :
         self.fight.show()
         
         
-    def open_inventory(self) :
-        
+    def open_inventory(self):
+        # Crée une fenêtre secondaire avec un ListWidget
         self.inventory = Ui_Inventory()
         self.inventory.show()
         
