@@ -1,4 +1,5 @@
 import random as rd
+import time
 from GUI_Combat import *
 from POKEMON import *
 import sys
@@ -67,6 +68,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             self.close()
         
         else :
+            time.sleep(1)
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
             joueur.pokemon_choisi.hp -= degats
@@ -93,6 +95,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             self.close()
         
         else :
+            time.sleep(1)
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
             joueur.pokemon_choisi.hp -= degats
