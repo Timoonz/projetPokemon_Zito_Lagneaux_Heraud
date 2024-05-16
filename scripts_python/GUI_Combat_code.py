@@ -44,10 +44,14 @@ class Combat(QMainWindow, Ui_MainWindow):
         degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
         self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
         joueur.pokemon_choisi.hp -= degats
-        self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")
+        self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")       
         self.update()
         
     def fuite(self):
+        self.textBrowser.setText("Vous prenez la fuite !")
+        
+        # time.sleep(1)
+        
         self.close()
         
         
@@ -55,12 +59,17 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         
         degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
+        self.textBrowser.setText(joueur.pokemon_choisi.name + " utilise une attaque neutre")
+        time.sleep(1)
         self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp-degats)*100/joueur.pokemon_adverse.hp))
+        self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
         joueur.pokemon_adverse.hp -= degats
-        
+        self.update()
         
         if joueur.pokemon_adverse.hp <= 0 :
             joueur.pokemon_adverse.hp = 0
+            self.barre_hp_adverse.setValue(0)
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " a été capturé avec succès !")
             joueur.pokemon_adverse.position = [-10,-10]
             joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
             joueur.inventaire.append(joueur.pokemon_adverse)
@@ -70,11 +79,16 @@ class Combat(QMainWindow, Ui_MainWindow):
         else :
             time.sleep(1)
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " utilise une attaque neutre")
+            time.sleep(1)
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
             joueur.pokemon_choisi.hp -= degats
             
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
+            self.barre_hp_choisi.setValue(0)
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " a été mis hors combat !")
             self.update()
             self.Chgt_pokemon()
             
@@ -88,6 +102,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         if joueur.pokemon_adverse.hp <= 0 :
             joueur.pokemon_adverse.hp = 0
+            self.barre_hp_adverse.setValue(0)
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " a été capturé avec succès !")
             joueur.pokemon_adverse.position = [-10,-10]
             joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
             joueur.inventaire.append(joueur.pokemon_adverse)
@@ -102,6 +118,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
+            self.barre_hp_choisi.setValue(0)
             self.update()
             self.Chgt_pokemon()
             
