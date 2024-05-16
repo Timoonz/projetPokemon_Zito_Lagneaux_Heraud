@@ -43,6 +43,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
         self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
         joueur.pokemon_choisi.hp -= degats
+        self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")
         self.update()
         
     def fuite(self):

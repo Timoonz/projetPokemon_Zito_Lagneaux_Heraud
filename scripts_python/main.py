@@ -64,8 +64,9 @@ class Game(QMainWindow) :
         self.setWindowTitle("Pokéming")
         
         #Ajout de la carte et du sprite du perso principal
-        self.map = Map(self, "../sprites_ow/map_pokemon.png")
+        self.map = Map(self, "../sprites_ow/Map_finale.png")
         self.player = Player(self, "../sprites_ow/player_ow_standing.png")
+       
         
         
     def open_fight(self):

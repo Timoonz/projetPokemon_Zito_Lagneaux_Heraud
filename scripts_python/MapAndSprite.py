@@ -17,50 +17,50 @@ class Map() :
     
     def __init__(self, mainWindow, mapPath) : 
         self.map = QLabel(mainWindow)
-        self.map.setGeometry(QtCore.QRect(0, 0, 2000, 500))
+        self.map.setGeometry(QtCore.QRect(-75, -25, 2000, 2000))
         self.map.setText("")
         self.map.setScaledContents(True)
         self.map.setObjectName("map")
         self.map.setPixmap(QPixmap(mapPath))
         self.mainWindow = mainWindow
         
+    # def accesible():
+        
+    #     if -1 < joueur.position[0] 
+        
+        
     def move(self, direction) : 
         pos = self.map.geometry()
         
-        if direction == "up" :
+        if direction == "up" and joueur.position[1] < 3.5:
             pos.translate(0, 25)
             joueur.position[1] += 0.5
             
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up.png"))
             
-        if direction == "down" :
+        if direction == "down" and joueur.position[1] > -29.5:
             pos.translate(0, -25)
             joueur.position[1] -= 0.5
             
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_down.png"))
             
-        if direction == "left" :
+        if direction == "left" and joueur.position[0]>-1 :
             pos.translate(25, 0)
             joueur.position[0] -= 0.5
             
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left.png"))
             
-        if direction == "right" :
+        if direction == "right" and joueur.position[0] < 27.5:
             pos.translate(-25, 0)
             joueur.position[0] += 0.5
             
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right.png"))
             
-        def test(self):
-            
-            if joueur.detecter() == True:
-                print ("ça marche")
-                self.close()
-        
+       
 class Player() : 
     
     def __init__(self, mainWindow, spritePath) :
