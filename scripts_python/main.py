@@ -11,12 +11,16 @@ from MapAndSprite import Map, PlayerSprite
 import sys
 
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import Qt, QEvent
-from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QListWidget
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QMainWindow
 from GUI_Combat_code import *
+<<<<<<< HEAD
 from Inventory import *
 from  PyQt5.QtTest import QTest
+=======
+import Inventory as inv
+
+>>>>>>> 295c852110064e89fd8e78df6e74bf32731a0301
 
 class Game(QMainWindow) :
     def __init__(self) : 
@@ -29,7 +33,6 @@ class Game(QMainWindow) :
             self.map.move("up")
             if joueur.detecter(Pokemon_sauvage)[0]:
                 
-               
                 self.open_fight()
                 
                 
@@ -58,7 +61,9 @@ class Game(QMainWindow) :
             
         if event.key() == Qt.Key_P :
             print(joueur.position)
-            
+        
+        ##Processus qui nous a permis de faire la carte des collisions 
+        
         # if event.key() == Qt.Key_H :
         #     j_p = str(joueur.position)
         #     Bloque_h.append(eval(j_p))
@@ -114,8 +119,8 @@ class Game(QMainWindow) :
         
     def open_inventory(self):
         
-        # Crée une fenêtre secondaire avec un ListWidget
-        self.inventory = Ui_Inventory()
+        # Crée une fenêtre secondaire avec un ListWidget qui fait figure d'inventaire
+        self.inventory = inv.Ui_Inventory()
         self.inventory.show()
         
         
