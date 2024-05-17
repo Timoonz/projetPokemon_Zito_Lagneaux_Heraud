@@ -2,7 +2,11 @@
 Auteurs :
 - HERAUD Timothée
 - LAGNEAUX Abigaëlle
-- ZITO Nicolas 
+- ZITO Nicolas
+
+Versions utilisées :
+  - Numpy : 1.24.4
+  - Pyqt : 5.15.10
 
 ## Comment jouer ?
 Pour lancer le jeu, veuillez lancer le fichier main.py.
