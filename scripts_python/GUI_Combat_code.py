@@ -171,7 +171,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         joueur.pokemon_adverse.hp -= degats
         
         
-        # Gestion du cas où le pokemon 
+        # Gestion du cas où le pokemon adverse est ko
         if joueur.pokemon_adverse.hp <= 0 :
             
             # On met à jour l'affichage des hp du pokemon adverse
@@ -184,22 +184,37 @@ class Combat(QMainWindow, Ui_MainWindow):
             joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
             joueur.inventaire.append(joueur.pokemon_adverse)
             Pokemon_sauvage.remove(joueur.pokemon_adverse)
+            
+            # Le combat est terminé donc plus aucun pokemon n'est ko
             ko = 0
+            
             self.close()
         
         else :
+            
             time.sleep(1)
+            
+            # Le pokemon adverse utilise une attaque spéciale
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             self.textBrowser.setText(joueur.pokemon_adverse.name + " utilise une attaque neutre")
+            
+            # On met à jour l'affichage des hp du pokemon choisi
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
             joueur.pokemon_choisi.hp -= degats
         
+        # Gestion du cas ou le pokemon choisi est ko
         if joueur.pokemon_choisi.hp<= 0 :
+            
+            # On met à jour l'affichage
             joueur.pokemon_choisi.hp = 0
             self.barre_hp_choisi.setValue(0)
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a été mis hors combat !")
+            
+            # On ajoute 1 au compteur de pokemons ko
             ko += 1
+            
+            # On met à jour l'affichage
             self.update()
             self.Chgt_pokemon()
             
