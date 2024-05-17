@@ -47,7 +47,6 @@ class Game(QMainWindow) :
         # Pour afficher l'inventaire
         if event.key() == Qt.Key_I :
             self.open_inventory()
-            self.sound()
             
         if event.key() == Qt.Key_C :
             joueur.chanter()
@@ -102,7 +101,7 @@ class Game(QMainWindow) :
         self.fight.barre_hp_choisi.setValue(100)
         self.fight.reset_hp()
         self.fight.update()
-        self.fight.textBrowser.setText("un " + joueur.pokemon_adverse.name + " est apparu !")        
+        self.fight.textBrowser.setText("Un " + joueur.pokemon_adverse.name + " est apparu !")        
         self.fight.show()
         QTest.qWait(2000)
         self.fight.textBrowser.setText("C'est un pokemon de type " + joueur.pokemon_adverse.type_pokemon() + ".")
