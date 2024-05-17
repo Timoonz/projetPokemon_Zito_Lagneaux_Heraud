@@ -54,6 +54,9 @@ class Game(QMainWindow) :
         if event.key() == Qt.Key_I :
             self.open_inventory()
             
+        if event.key() == Qt.Key_P :
+            print(joueur.position)
+            
         # if event.key() == Qt.Key_H :
         #     j_p = str(joueur.position)
         #     Bloque_h.append(eval(j_p))
