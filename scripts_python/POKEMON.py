@@ -29,7 +29,7 @@ class Pokemon (metaclass = ABCMeta):
         self.sp_deff = sp_deff
         self.speed = speed
         self.legendary = legendary
-        self.position = position # On définira comme position [-10,-10] pour les pokemons aquis
+        self.position = position # On définira comme position [-10,-10] pour les pokemons acquis
                                  # pour les différencier des pokemons sauvages
 
     def __str__(self) :

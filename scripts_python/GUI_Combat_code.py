@@ -46,7 +46,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         #Le test permet de savoir si tous les pokemons du joueurs sont ko
         if ko == len(joueur.inventaire) :
             
-            self.textBrowser.setText("Tous vos pokemons sont ko, vous avez perdu le combat !")
+            self.textBrowser.setText("Tous vos pokemons sont K.O. , vous avez perdu le combat !")
             
             time.sleep(1)
             
@@ -60,10 +60,12 @@ class Combat(QMainWindow, Ui_MainWindow):
             # Nous avons décidé que changer de pokemon était une action au meme titre qu'attaquer donc après le changement, 
             # le nouveau pokemon subit des degats
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+
             
             # On met à jour la barre d'hp, l'affichage des hp et on envoie un message indiquant
-            # quel est le pokemon envoyé au combat
-            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
+            # quel est le pokemon envoyé au combat            
+            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
+
             joueur.pokemon_choisi.hp -= degats
             self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")       
             self.update()
@@ -90,9 +92,11 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         
         time.sleep(1)
+
         
-        # On met à jour l'affichage 
-        self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp-degats)*100/joueur.pokemon_adverse.hp))
+        # On met à jour l'affichage         
+        self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
+
         self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
         joueur.pokemon_adverse.hp -= degats
         self.update()
@@ -113,7 +117,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque spéciale")
             time.sleep(1)
-            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
+            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
             joueur.pokemon_choisi.hp -= degats
             
@@ -134,7 +138,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
         self.textBrowser.setText(joueur.pokemon_choisi.name + " lance une attaque spéciale")
-        self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp-degats)*100/joueur.pokemon_adverse.hp))
+        self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
         self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
         joueur.pokemon_adverse.hp -= degats
         
@@ -153,7 +157,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             time.sleep(1)
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             self.textBrowser.setText(joueur.pokemon_adverse.name + " utilise une attaque neutre")
-            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
+            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
             joueur.pokemon_choisi.hp -= degats
         
