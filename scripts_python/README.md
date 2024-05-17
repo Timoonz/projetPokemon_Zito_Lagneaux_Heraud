@@ -27,6 +27,15 @@ En dehors de la fuite, chaque options mènent le pokemon adverse à attaquer, et
 
 Lorsque vous gagnez un combat, le pokemon sauvage disparrait de la carte et s'ajoute à votre inventaire.
 
+## Règles misent en place
+Le but du jeu est d'attrapper tous les pokemons de la carte via des combats entre les pokemons acquis et les pokemons sauvages.
+
+Il y a certaines règles lors des combats :
+  - Lorsque le pokemon du joueur attaque, le pokemon attaqué réplique
+  - Lorsque le joueur change de pokemon, le nouveau pokemon reçoit une attaque du pokemon sauvage
+  - Lorsque l'un des pokemons acquis perd tous ses PV, le joueur est obligé de changer de pokemon
+  - Lorsque tous les pokemons du joueur n'ont plus de PV, il a perdu le combat
+
 ## Détails sur les dégats dans les combats
 
 La formule officielle du calcul des dégats contenant des données non fournies, l'équipe a choisi de s'en inspirer et de créer les formules suivantes.
