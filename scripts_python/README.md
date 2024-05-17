@@ -1,8 +1,8 @@
 # Guide d'utilisation pour le jeu
 Auteurs :
-*HERAUD Timothée
-*LAGNEAUX Abigaëlle
-*ZITO Nicolas 
+- HERAUD Timothée
+- LAGNEAUX Abigaëlle
+- ZITO Nicolas 
 
 ## Comment jouer ?
 Pour lancer le jeu, veuillez lancer le fichier main.py.
