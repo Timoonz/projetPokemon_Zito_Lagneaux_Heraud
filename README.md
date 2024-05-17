@@ -3,6 +3,11 @@
 * Marie-Dominique Van Damme: marie-dominique.van-damme@ensg.eu
 * Melvin Hersent: melvin.hersent@map.cnrs.fr
 
+Equipe sur ce projet :
+* HERAUD Timothée
+* LAGNEAUX Abigaëlle
+* ZITO Nicolas
+
 ## Matériel de départ
 
 ### Dans le répertoire "document", vous avez:
@@ -29,10 +34,29 @@
   13. `Legendary` : rareté du pokemon, les légendaires sont normalement uniques
 
 * Un fichier csv contenant une liste de pokemons avec des coordonnées géographiques.
+## Dossiers ajoutés :
 
-## Comment créer votre dépôt github ?
+### Dans le repertoire "scripts_python", vous avez :
+* README.md, le fichier avec toutes les instructions pour jouer
+* Extraction_des_donnees.py
+* GUI_Choix_pokemon.py
+* GUI_Combat.py
+* GUI_Combat_code.py
+* Inventory.py
+* MapAndSprite.py
+* POKEMON.py
+* main.py
 
-1. Se créer un identifiant github
-2. Demander à un enseignant de vous ajouter dans l'organisation **ENSG-POO-2024**
-3. *Forker* (copier) le projet **projetPokemon** et choisissez un nom très personnalisé !
-4. Pour voir comment établir une connexion ssh entre votre ordinateur et github, voir documents/sshConnexion.md
+### Dans le repertoire "Sprites_Pokemons", vous avez  :
+* L'ensemble des images de Pokemon de face
+* L'ensemble des images des Pokemons de dos
+
+### Dans le repertoire "sprites_ow", vous avez :
+* La carte
+* Un fond pour le combat
+* Les différentes positions du joueur
+
+### Dans le repertoire "QtDesigner", vous avez :
+* Une image de fond pour les combats
+* Une image blanche pour les combats
+

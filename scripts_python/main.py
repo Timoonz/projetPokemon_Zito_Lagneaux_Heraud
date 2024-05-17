@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon May  6 11:32:26 2024
-
-@author: timot
-"""
-
 from MapAndSprite import Map, PlayerSprite
 
 
@@ -53,11 +46,10 @@ class Game(QMainWindow) :
                 
                 self.open_fight()
         
+        # Pour afficher l'inventaire
         if event.key() == Qt.Key_I :
             self.open_inventory()
             
-        if event.key() == Qt.Key_P :
-            print(joueur.position)
         
         ##Processus qui nous a permis de faire la carte des collisions 
         
