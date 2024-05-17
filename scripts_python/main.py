@@ -105,7 +105,7 @@ class Game(QMainWindow) :
     def open_fight(self):
         
         '''
-        Cette fonction permet d'ouvrir le combat entre le pokemon du jouer et le pokemon détecté
+        Cette fonction permet d'ouvrir le combat entre le pokemon du joueur et le pokemon détecté
         '''
         
         pk.joueur.pokemon_adverse = pk.joueur.detecter(data.Pokemon_sauvage)[1]
