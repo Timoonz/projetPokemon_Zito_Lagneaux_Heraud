@@ -66,6 +66,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             
             self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")            
             self.update()
+            self.barre_hp_choisi.setValue(100)
             
             QTest.qWait(500)
             
@@ -138,6 +139,8 @@ class Combat(QMainWindow, Ui_MainWindow):
             # Le combat est terminé donc plus aucun pokemon n'est ko 
             ko = 0
             
+            QTest.qWait(2000)
+            
             self.close()
         
         else :
@@ -163,6 +166,8 @@ class Combat(QMainWindow, Ui_MainWindow):
             # On met à jour l'affichage des hp du pokemon choisi
             self.barre_hp_choisi.setValue(0)
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a été mis hors combat !")
+            
+            QTest.qWait(1000)
             
             # On ajoute 1 au compteur de pokemons ko
             ko += 1
@@ -204,6 +209,8 @@ class Combat(QMainWindow, Ui_MainWindow):
             
             # Le combat est terminé donc plus aucun pokemon n'est ko
             ko = 0
+            
+            QTest.qWait(2000)
             
             self.close()
         
