@@ -23,11 +23,17 @@ class Ui_Inventory(QWidget):
 
 
         self.Liste_pokemons = QListWidget()
+        
+        
+        self.Compteur = QtWidgets.QTextBrowser()
+        self.Compteur.setText(str(len(joueur.inventaire)) + " / 300 ont été capturés" )
+        
 
         for i in range(len(joueur.inventaire)):
             self.Liste_pokemons.addItem(str(joueur.inventaire[i].name))
 
         layout = QVBoxLayout()
         layout.addWidget(self.Liste_pokemons)
+        layout.addWidget(self.Compteur)
         self.setLayout(layout)
 
