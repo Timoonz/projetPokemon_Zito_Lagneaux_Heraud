@@ -2,6 +2,8 @@
 from abc import abstractmethod,ABCMeta
 import numpy as np
 
+from PyQt5.QtMultimedia import QSound
+
 
 # Classes
 
@@ -663,7 +665,7 @@ class Joueur :
     
     def chanter(self) :
         
-        print("Un jour je serais le meilleur dresseur")
+        QSound.play("../sound/singing_player.wav")
         
         
     def choisir_un_pokemon (self) :

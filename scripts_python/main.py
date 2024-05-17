@@ -9,7 +9,9 @@ from PyQt5.QtWidgets import QMainWindow
 from GUI_Combat_code import *
 from  PyQt5.QtTest import QTest
 import Inventory as inv
+import POKEMON as pk
 
+from PyQt5.QtMultimedia import QSound
 
 
 class Game(QMainWindow) :
@@ -22,33 +24,33 @@ class Game(QMainWindow) :
         if event.key() == Qt.Key_Up and not event.isAutoRepeat():
             self.map.move("up")
             if joueur.detecter(Pokemon_sauvage)[0]:
-                
                 self.open_fight()
                 
                 
         if event.key() == Qt.Key_Down and not event.isAutoRepeat(): 
             self.map.move("down")
             if joueur.detecter(Pokemon_sauvage)[0]:
-                
                 self.open_fight()
                 
                 
         if event.key() == Qt.Key_Left and not event.isAutoRepeat(): 
             self.map.move("left")
             if joueur.detecter(Pokemon_sauvage)[0]:
-                
                 self.open_fight()
                 
                 
         if event.key() == Qt.Key_Right and not event.isAutoRepeat(): 
             self.map.move("right")
-            if joueur.detecter(Pokemon_sauvage)[0]:
-                
+            if pk.joueur.detecter(Pokemon_sauvage)[0]:
                 self.open_fight()
         
         # Pour afficher l'inventaire
         if event.key() == Qt.Key_I :
             self.open_inventory()
+            self.sound()
+            
+        if event.key() == Qt.Key_C :
+            joueur.chanter()
             
         
         ##Processus qui nous a permis de faire la carte des collisions 
@@ -111,7 +113,6 @@ class Game(QMainWindow) :
         # Crée une fenêtre secondaire avec un ListWidget qui fait figure d'inventaire
         self.inventory = inv.Ui_Inventory()
         self.inventory.show()
-        
         
         
     
