@@ -100,56 +100,86 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         # On met à jour l'affichage         
         self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
-
         self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
         joueur.pokemon_adverse.hp -= degats
         self.update()
         
+        
+        # Gestion du cas où le pokemon adverse est ko
         if joueur.pokemon_adverse.hp <= 0 :
             joueur.pokemon_adverse.hp = 0
+            
+            # On met à jour l'affichage des hp du pokemon adverse
             self.barre_hp_adverse.setValue(0)
             self.textBrowser.setText(joueur.pokemon_adverse.name + " a été capturé avec succès !")
+            
+            # On retire le pokemon sauvage de la map, on l'ajoute à l'inventaire du joueur et on reset ses hp
             joueur.pokemon_adverse.position = [-10,-10]
             joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
             joueur.inventaire.append(joueur.pokemon_adverse)
             Pokemon_sauvage.remove(joueur.pokemon_adverse)
+            
+            # Le combat est terminé donc plus aucun pokemon n'est ko 
             ko = 0
+            
             self.close()
         
         else :
             time.sleep(1)
+            
+            # Le pokemon adverse attaque
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque spéciale")
+            
             time.sleep(1)
+            
+            # On met à jour l'affichage des hp du pokemon choisi
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
             joueur.pokemon_choisi.hp -= degats
             
+            
+        # Gestion du cas où le pokemon choisi est ko
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
+            
+            # On met à jour l'affichage des hp du pokemon choisi
             self.barre_hp_choisi.setValue(0)
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a été mis hors combat !")
+            
+            # On ajoute 1 au compteur de pokemons ko
             ko += 1
+            
+            # On met à jour l'affichage et on oblige le joueur à changer de pokemon
             self.update()
             self.Chgt_pokemon()
             
-            
+        # On met à jour l'affichage
         self.update()   
         
     def attaque_speciale(self) :
         
         global ko
         
+        # Le pokemon choisi lance l'attaque spéciale définie dans la classe de son type
         degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
         self.textBrowser.setText(joueur.pokemon_choisi.name + " lance une attaque spéciale")
+        
+        # On met à jour l'affichage des hp du pokemon adverse
         self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
         self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
         joueur.pokemon_adverse.hp -= degats
         
+        
+        # Gestion du cas où le pokemon 
         if joueur.pokemon_adverse.hp <= 0 :
+            
+            # On met à jour l'affichage des hp du pokemon adverse
             joueur.pokemon_adverse.hp = 0
             self.barre_hp_adverse.setValue(0)
             self.textBrowser.setText(joueur.pokemon_adverse.name + " a été capturé avec succès !")
+            
+            # On retire le pokemon sauvage de la map, on l'ajoute à l'inventaire du joueur et on reset ses hp
             joueur.pokemon_adverse.position = [-10,-10]
             joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
             joueur.inventaire.append(joueur.pokemon_adverse)
