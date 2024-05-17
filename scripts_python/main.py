@@ -4,7 +4,7 @@ Created on Mon May  6 11:32:26 2024
 
 @author: timot
 """
-from MapAndSprite import Map, Player
+from MapAndSprite import Map, PlayerSprite
 
 import sys
 
@@ -65,7 +65,7 @@ class Game(QMainWindow) :
         
         #Ajout de la carte et du sprite du perso principal
         self.map = Map(self, "../sprites_ow/Map_finale.png")
-        self.player = Player(self, "../sprites_ow/player_ow_standing.png")
+        self.player = PlayerSprite(self, "../sprites_ow/player_ow_standing.png")
        
         
         
@@ -82,6 +82,7 @@ class Game(QMainWindow) :
         
         
     def open_inventory(self):
+        
         # Crée une fenêtre secondaire avec un ListWidget
         self.inventory = Ui_Inventory()
         self.inventory.show()

@@ -9,9 +9,7 @@ Created on Mon May  6 11:31:09 2024
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QLabel
 from PyQt5.QtGui import QPixmap
-from POKEMON import *
-from Extraction_des_donnes import *
-from GUI_Combat_code import *
+import POKEMON as pk
 
 class Map() : 
     
@@ -24,44 +22,40 @@ class Map() :
         self.map.setPixmap(QPixmap(mapPath))
         self.mainWindow = mainWindow
         
-    # def accesible():
-        
-    #     if -1 < joueur.position[0] 
-        
         
     def move(self, direction) : 
         pos = self.map.geometry()
         
-        if direction == "up" and joueur.position[1] < 3.5:
+        if direction == "up" and pk.joueur.position[1] < 3.5:
             pos.translate(0, 25)
-            joueur.position[1] += 0.5
+            pk.joueur.position[1] += 0.5
             
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up.png"))
             
-        if direction == "down" and joueur.position[1] > -29.5:
+        if direction == "down" and pk.joueur.position[1] > -29.5:
             pos.translate(0, -25)
-            joueur.position[1] -= 0.5
+            pk.joueur.position[1] -= 0.5
             
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_down.png"))
             
-        if direction == "left" and joueur.position[0]>-1 :
+        if direction == "left" and pk.joueur.position[0]>-1 :
             pos.translate(25, 0)
-            joueur.position[0] -= 0.5
+            pk.joueur.position[0] -= 0.5
             
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left.png"))
             
-        if direction == "right" and joueur.position[0] < 27.5:
+        if direction == "right" and pk.joueur.position[0] < 27.5:
             pos.translate(-25, 0)
-            joueur.position[0] += 0.5
+            pk.joueur.position[0] += 0.5
             
             self.map.setGeometry(pos)
             self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right.png"))
             
        
-class Player() : 
+class PlayerSprite() : 
     
     def __init__(self, mainWindow, spritePath) :
         self.sprite = QLabel(mainWindow)
