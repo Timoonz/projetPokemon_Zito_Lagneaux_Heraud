@@ -9,6 +9,10 @@ from GUI_Choix_pokemon import *
 from Extraction_des_donnes import *
 
 ko = 0
+Bloque_h = []
+Bloque_b = []
+Bloque_g = []
+Bloque_d = []
 
 def attaque_ennemi(pokemon_sauvage, pokemon_choisi) :
     
