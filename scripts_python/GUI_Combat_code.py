@@ -8,6 +8,7 @@ from PyQt5.QtGui import QPixmap
 from GUI_Choix_pokemon import *
 from Extraction_des_donnes import *
 
+ko = 0
 
 def attaque_ennemi(pokemon_sauvage, pokemon_choisi) :
     
@@ -39,17 +40,29 @@ class Combat(QMainWindow, Ui_MainWindow):
             
             
     def Chgt_pokemon(self):
-        dlg = Choix(self)
-        dlg.exec()
-        degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
-        self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
-        joueur.pokemon_choisi.hp -= degats
-        self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")       
-        self.update()
+        
+        if ko == len(joueur.inventaire) :
+            
+            self.textBrowser.setText("Tous vos pokemons sont ko, vous avez perdu le combat !")
+            
+            time.sleep(1)
+            
+            self.close()
+        else :
+            dlg = Choix(self)
+            dlg.exec()
+            degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
+            joueur.pokemon_choisi.hp -= degats
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")       
+            self.update()
         
     def fuite(self):
-        self.textBrowser.setText("Vous prenez la fuite !")
         
+        global ko
+        
+        self.textBrowser.setText("Vous prenez la fuite !")
+        ko = 0
         # time.sleep(1)
         
         self.close()
@@ -57,6 +70,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
     def attaque_neutre(self) :
         
+        global ko
         
         degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
         self.textBrowser.setText(joueur.pokemon_choisi.name + " utilise une attaque neutre")
@@ -74,12 +88,13 @@ class Combat(QMainWindow, Ui_MainWindow):
             joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
             joueur.inventaire.append(joueur.pokemon_adverse)
             Pokemon_sauvage.remove(joueur.pokemon_adverse)
+            ko = 0
             self.close()
         
         else :
             time.sleep(1)
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
-            self.textBrowser.setText(joueur.pokemon_adverse.name + " utilise une attaque neutre")
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque spéciale")
             time.sleep(1)
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
@@ -89,6 +104,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             joueur.pokemon_choisi.hp = 0
             self.barre_hp_choisi.setValue(0)
             self.textBrowser.setText(joueur.pokemon_choisi.name + " a été mis hors combat !")
+            ko += 1
             self.update()
             self.Chgt_pokemon()
             
@@ -96,8 +112,13 @@ class Combat(QMainWindow, Ui_MainWindow):
         self.update()   
         
     def attaque_speciale(self) :
+        
+        global ko
+        
         degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
+        self.textBrowser.setText(joueur.pokemon_choisi.name + " lance une attaque spéciale")
         self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp-degats)*100/joueur.pokemon_adverse.hp))
+        self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
         joueur.pokemon_adverse.hp -= degats
         
         if joueur.pokemon_adverse.hp <= 0 :
@@ -108,17 +129,22 @@ class Combat(QMainWindow, Ui_MainWindow):
             joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
             joueur.inventaire.append(joueur.pokemon_adverse)
             Pokemon_sauvage.remove(joueur.pokemon_adverse)
+            ko = 0
             self.close()
         
         else :
             time.sleep(1)
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " utilise une attaque neutre")
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
             joueur.pokemon_choisi.hp -= degats
         
         if joueur.pokemon_choisi.hp<= 0 :
             joueur.pokemon_choisi.hp = 0
             self.barre_hp_choisi.setValue(0)
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " a été mis hors combat !")
+            ko += 1
             self.update()
             self.Chgt_pokemon()
             
