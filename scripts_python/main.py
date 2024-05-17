@@ -4,7 +4,9 @@ Created on Mon May  6 11:32:26 2024
 
 @author: timot
 """
+
 from MapAndSprite import Map, PlayerSprite
+
 
 import sys
 
@@ -14,7 +16,6 @@ from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QListWidget
 from PyQt5.QtGui import QPixmap
 from GUI_Combat_code import *
 from Inventory import *
-
 
 
 class Game(QMainWindow) :
@@ -54,6 +55,33 @@ class Game(QMainWindow) :
         
         if event.key() == Qt.Key_I :
             self.open_inventory()
+            
+        if event.key() == Qt.Key_P :
+            print(joueur.position)
+            
+        # if event.key() == Qt.Key_H :
+        #     j_p = str(joueur.position)
+        #     Bloque_h.append(eval(j_p))
+        #     print(j_p)
+        #     print(Bloque_h)
+            
+        # if event.key() == Qt.Key_B :
+        #     j_p = str(joueur.position)
+        #     Bloque_b.append(eval(j_p))
+        #     print(j_p)
+        #     print(Bloque_b)
+        
+        # if event.key() == Qt.Key_G :
+        #     j_p = str(joueur.position)
+        #     Bloque_g.append(eval(j_p))
+        #     print(j_p)
+        #     print(Bloque_g)
+        
+        # if event.key() == Qt.Key_D :
+        #     j_p = str(joueur.position)
+        #     Bloque_d.append(eval(j_p))
+        #     print(j_p)
+        #     print(Bloque_d)
                 
                 
     

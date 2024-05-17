@@ -658,7 +658,7 @@ class Joueur :
                 # print(Pokemon_sauvage[i].name)
                 return True, Pokemon_sauvage[i]       # Si un pokemon est dans le champs de vision du joueur, ce pokemon est renvoyé
         
-        return False, Pokemon_sauvage[635]
+        return False, Pokemon_sauvage[0]
     
     
 joueur = Joueur('joueur',[0,0])            
