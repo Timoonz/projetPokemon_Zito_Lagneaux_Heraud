@@ -1,3 +1,5 @@
+# Importations
+
 import random as rd
 from GUI_Combat import *
 from POKEMON import joueur
@@ -12,12 +14,28 @@ ko = 0
 
 def attaque_ennemi(pokemon_sauvage, pokemon_choisi) :
     
+    '''
+    Cette fonction permet de définir une réponse "inteligente" du joueur sauvage
+    
+        entrée :
+            pokemon_sauvage : Pokemon
+            pokemon_choisi : Pokemon
+            
+        sortie :
+            degats : int
+    '''
+    
     CM = pokemon_sauvage.faiblesses[pokemon_choisi.type_pokemon()]
     
+    # Si le pokemon sauvage a l'avantage
     if CM == 2 :
         return pokemon_sauvage.attaque_speciale(pokemon_choisi)
+    
+    # Si le pokemon sauvage est désavantagé
     elif CM == 0.5 :
         return pokemon_sauvage.attaque_neutre(pokemon_choisi)
+    
+    # Dans le cas où aucun des deux pokemons n'a l'avantage
     else :
         alea = rd.randint(0,1)
         
@@ -25,7 +43,9 @@ def attaque_ennemi(pokemon_sauvage, pokemon_choisi) :
             return pokemon_sauvage.attaque_speciale(pokemon_choisi)
         else :
             return pokemon_sauvage.attaque_neutre(pokemon_choisi)
-        
+    
+    
+    
 class Combat(QMainWindow, Ui_MainWindow):
     
     
@@ -250,6 +270,11 @@ class Combat(QMainWindow, Ui_MainWindow):
         self.update()
         
     def update(self):
+        
+        '''
+        Cette fonction permet de mettre à jour l'affichage de la fenetre
+        '''
+        
         image_path = "../Sprites_Pokemons/" + joueur.pokemon_choisi.name.lower() + "_Dos.png"
         pixmap = QPixmap(image_path)
         image_path2 = "../Sprites_Pokemons/" + joueur.pokemon_adverse.name.lower() + "_Face.png"
@@ -262,6 +287,11 @@ class Combat(QMainWindow, Ui_MainWindow):
         self.Pokemon_Face_HP.setText( "HP " + str(joueur.pokemon_adverse.hp) + "/" + str(joueur.pokemon_adverse.hp_init))
         
     def reset_hp(self):
+        
+        '''
+        Cette fonction permet de remettre les hp d'origine d'un pokemon à la fin d'un combat
+        '''
+        
         for pokemon in joueur.inventaire:
             pokemon.hp = pokemon.hp_init
             pokemon.isKo = False
