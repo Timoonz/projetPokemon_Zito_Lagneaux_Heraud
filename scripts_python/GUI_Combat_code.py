@@ -33,6 +33,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         
             super(Combat, self).__init__(parent)
             self.setupUi(self)
+            
+            # On assigne à chaque bouton de l'interface la fonction qui correspond
             self.att_neutre_bouton.clicked.connect(self.attaque_neutre)
             self.Att_sp_bouton.clicked.connect(self.attaque_speciale)
             self.fuite_bouton.clicked.connect(self.fuite)
@@ -41,6 +43,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             
     def Chgt_pokemon(self):
         
+        #Le test permet de savoir si tous les pokemons du joueurs sont ko
         if ko == len(joueur.inventaire) :
             
             self.textBrowser.setText("Tous vos pokemons sont ko, vous avez perdu le combat !")
@@ -49,9 +52,17 @@ class Combat(QMainWindow, Ui_MainWindow):
             
             self.close()
         else :
+            
+            # dlg est la boite de dialogue utilisée pour changer de pokemon
             dlg = Choix(self)
             dlg.exec()
+            
+            # Nous avons décidé que changer de pokemon était une action au meme titre qu'attaquer donc après le changement, 
+            # le nouveau pokemon subit des degats
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+            
+            # On met à jour la barre d'hp, l'affichage des hp et on envoie un message indiquant
+            # quel est le pokemon envoyé au combat
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp-degats)*100/joueur.pokemon_choisi.hp))
             joueur.pokemon_choisi.hp -= degats
             self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")       
@@ -61,6 +72,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         global ko
         
+        # Quand on fuit on récupère tous nos pokemons donc plus aucun n'est ko
         self.textBrowser.setText("Vous prenez la fuite !")
         ko = 0
         # time.sleep(1)
@@ -72,9 +84,14 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         global ko
         
+        # Le pokemon choisi lance l'attaque neutre définie dans la classe Pokemon
         degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
         self.textBrowser.setText(joueur.pokemon_choisi.name + " utilise une attaque neutre")
+        
+        
         time.sleep(1)
+        
+        # On met à jour l'affichage 
         self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp-degats)*100/joueur.pokemon_adverse.hp))
         self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
         joueur.pokemon_adverse.hp -= degats
