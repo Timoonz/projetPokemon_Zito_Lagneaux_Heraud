@@ -656,17 +656,17 @@ class Joueur :
     Cette classe contient les principales caractéristiques du joueur
     '''
     
-    def __init__(self, name, position, rayon_de_vision = 0.25,pokemon_adverse = None, pokemon_choisi = Grass('Bulbasaur',45,49,49,65,65,45,False, [-10,-10]),
+    def __init__(self, name, position,rayon_de_vision = 0.25,pokemon_adverse = None, 
                  inventaire_de_pokemon = [Fire('Charmander',39,52,43,60,50,65,False, [-10,-10]),    # Nous avons choisi Salamèche, Bulbizarre et Carapuce
                                           Grass('Bulbasaur',45,49,49,65,65,45,False, [-10,-10]),    # comme pokemons de départ
                                           Water('Squirtle',44,48,65,50,64,43,False, [-10,-10])]) :
                                                                            
         self.name = name
         self.rdv = rayon_de_vision
-        self.pokemon_choisi = pokemon_choisi
+        self.pokemon_choisi = inventaire_de_pokemon[1]
         self.position = position
         self.inventaire = inventaire_de_pokemon
-    
+        inventaire_de_pokemon[1]
     
     def chanter(self) :
         

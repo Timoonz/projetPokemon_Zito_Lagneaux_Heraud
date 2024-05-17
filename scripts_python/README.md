@@ -12,7 +12,7 @@ Versions utilisées :
 Pour lancer le jeu, veuillez lancer le fichier main.py.
 
 Pour se déplacer, appuyez sur les flèches de votre clavier. 
-Attention, vous de pouvez pas marcher sur les arbres et les batiments !
+Attention, vous ne pouvez pas marcher sur les arbres et les batiments !
 
 Si vous voulez ouvrir votre inventaire sur la carte, appuyez sur la touche i de votre clavier.
 
@@ -25,9 +25,9 @@ Lorsqu'un combat avec un pokemon sauvage est lancé, quatre options s'offrent à
   - Changer de pokemon
 
 Pour utiliser l'une des ces quatre options, appuyez sur les cases correspondantes.
-En dehors de la fuite, chaque options mènent le pokemon adverse à attaquer, et donc vous recevez des dégats.
+En dehors de la fuite, chaque options mène le pokemon adverse à attaquer, et donc vous recevez des dégats.
 
-Lorsque vous gagnez un combat, le pokemon sauvage disparrait de la carte et s'ajoute à votre inventaire.
+Lorsque vous gagnez un combat, le pokemon sauvage disparaît de la carte et s'ajoute à votre inventaire.
 
 ## Règles misent en place
 Le but du jeu est d'attrapper tous les pokemons de la carte via des combats entre les pokemons acquis et les pokemons sauvages.
@@ -40,14 +40,14 @@ Il y a certaines règles lors des combats :
 
 ## Détails sur les dégats dans les combats
 
-La formule officielle du calcul des dégats contenant des données non fournies, l'équipe a choisi de s'en inspirer et de créer les formules suivantes.
+La formule officielle du calcul des dégâts contenant des données non fournies, l'équipe a choisi de s'en inspirer et de créer les formules suivantes.
 
 ### Pour les attaques neutres
 La formule utilisée est la suivante :
 $$\frac{attaque \times 10}{deffenseennemi}$$
 
 ### Pour les attaques spéciales
-Chaques type à ses forces et ses faiblasses. Par exemple le type feu est fort face au type glace, mais faible face au type eau. Il existe donc des coefficients multiplicateurs à utiliser.
+Chaque type a ses forces et ses faiblasses. Par exemple le type feu est fort face au type glace, mais faible face au type eau. Il existe donc des coefficients multiplicateurs à utiliser.
 La formule utilisée est la suivante :
 $$\frac{attaquespeciale \times 10}{deffensespecialeennemi} \times CM $$
 
@@ -55,24 +55,24 @@ CM étant le coefficiant multiplicateur correspondant aux types des pokemons en 
 
 ### Détails sur la réponse de l'adversaire
 L'adversaire attaque "intelligemment" : si son type l'avantage par rapport au type de votre pokemon, il fera une attaque spéciale, s'il est désaventagé il lancera une attaque neutre.
-Dans le cas où le pokemon adverse n'est ni avantagé ni désaavantagé, le pokemon adverse lancera de manière aléatoire soit une attaque neutre soit une attaque spéciale.
+Dans le cas où le pokemon adverse n'est ni avantagé ni désavantagé, le pokemon adverse lancera de manière aléatoire soit une attaque neutre soit une attaque spéciale.
 
 ## Détail des différents fichiers
 
 #### Extraction_des_donnees.py
-Ce fichier permet d'extraire les données mises à disposition. Il selectionne 300 pokemons qu'il répartit de manière aléatoire sur la carte.
+Ce fichier permet d'extraire les données mises à disposition. Il sélectionne 300 pokemons qu'il répartit de manière aléatoire sur la carte.
 Il affecte à chaque pokemon sa classe, pour ainsi lui donner ses attributs et méthodes.
 L'équipe a fait le choix de ne pas utiliser les coordonnées fournies dans data pour une meilleure répartition sur la carte.
 
 #### GUI_Choix_Pokemon.py
-Ce fichier permet la création de la boite de dialogue pour le changement de pokemon lors d'un combat.
-Cette fenêtre montre les pokemons disponibles au joueur et permet une selection.
+Ce fichier permet la création de la boîte de dialogue pour le changement de pokemon lors d'un combat.
+Cette fenêtre montre les pokemons disponibles au joueur et permet une sélection.
 
 #### GUI_Combat.py
-Ce fichier permet de créer la fenetre liée au combat. 
+Ce fichier permet de créer la fenêtre liée au combat. 
 
 #### GUI_Combat_code.py
-Ce fichier permet de coder tout le combat. Il relie ntamment les bouttons aux actions et met à jour la fenêtre de combat.
+Ce fichier permet de coder tout le combat. Il relie notamment les bouttons aux actions et met à jour la fenêtre de combat.
 
 #### Inventory.py
 Ce fichier permet la création de la fenêtre Inventory, disponible lorsque vous appuyez sur la touche i.

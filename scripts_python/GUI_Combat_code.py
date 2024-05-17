@@ -102,19 +102,20 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         global ko
         
-        # Le pokemon choisi lance l'attaque neutre définie dans la classe Pokemon
-        degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
-        self.textBrowser.setText(joueur.pokemon_choisi.name + " utilise une attaque neutre")
-        
-        
-        QTest.qWait(2000)
-
-        
-        # On met à jour l'affichage         
-        self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
-        self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
-        joueur.pokemon_adverse.hp -= degats
-        self.update()
+        if joueur.pokemon_choisi.isKo == False :
+            # Le pokemon choisi lance l'attaque neutre définie dans la classe Pokemon
+            degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " utilise une attaque neutre")
+            
+            
+            QTest.qWait(2000)
+    
+            
+            # On met à jour l'affichage         
+            self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
+            joueur.pokemon_adverse.hp -= degats
+            self.update()
         
         
         # Gestion du cas où le pokemon adverse est ko
@@ -181,16 +182,18 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         global ko
         
-        # Le pokemon choisi lance l'attaque spéciale définie dans la classe de son type
-        degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
-        self.textBrowser.setText(joueur.pokemon_choisi.name + " lance une attaque spéciale")
-        
-        QTest.qWait(2000)
-        
-        # On met à jour l'affichage des hp du pokemon adverse
-        self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
-        self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
-        joueur.pokemon_adverse.hp -= degats
+        if joueur.pokemon_choisi.isKo == False:
+            
+            # Le pokemon choisi lance l'attaque spéciale définie dans la classe de son type
+            degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " lance une attaque spéciale")
+            
+            QTest.qWait(2000)
+            
+            # On met à jour l'affichage des hp du pokemon adverse
+            self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
+            joueur.pokemon_adverse.hp -= degats
         
         
         # Gestion du cas où le pokemon adverse est ko
