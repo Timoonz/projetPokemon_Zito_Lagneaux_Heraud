@@ -3,6 +3,11 @@
 * Marie-Dominique Van Damme: marie-dominique.van-damme@ensg.eu
 * Melvin Hersent: melvin.hersent@map.cnrs.fr
 
+Equipe sur ce projet :
+* HERAUD Timothée
+* LAGNEAUX Abigaëlle
+* ZITO Nicolas
+
 ## Matériel de départ
 
 ### Dans le répertoire "document", vous avez:
