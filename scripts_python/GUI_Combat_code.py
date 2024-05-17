@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 from PyQt5.QtGui import QPixmap
 from GUI_Choix_pokemon import *
 from Extraction_des_donnes import *
+from  PyQt5.QtTest import QTest
 
 ko = 0
 Bloque_h = []
@@ -52,7 +53,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             
             self.textBrowser.setText("Tous vos pokemons sont K.O. , vous avez perdu le combat !")
             
-            time.sleep(1)
+            QTest.qWait(2000)
             
             self.close()
         else :
@@ -61,17 +62,31 @@ class Combat(QMainWindow, Ui_MainWindow):
             dlg = Choix(self)
             dlg.exec()
             
+            QTest.qWait(2000)
+            
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")            
+            self.update()
+            
+            QTest.qWait(500)
+            
             # Nous avons décidé que changer de pokemon était une action au meme titre qu'attaquer donc après le changement, 
             # le nouveau pokemon subit des degats
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+            
+            QTest.qWait(2000)
 
             
             # On met à jour la barre d'hp, l'affichage des hp et on envoie un message indiquant
-            # quel est le pokemon envoyé au combat            
+            # quel est le pokemon envoyé au combat  
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque") 
+            
+            QTest.qWait(2000)
+            
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
-
+                       
             joueur.pokemon_choisi.hp -= degats
-            self.textBrowser.setText(joueur.pokemon_choisi.name + " est envoyé au combat !")       
+                   
             self.update()
         
     def fuite(self):
@@ -81,7 +96,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         # Quand on fuit on récupère tous nos pokemons donc plus aucun n'est ko
         self.textBrowser.setText("Vous prenez la fuite !")
         ko = 0
-        # time.sleep(1)
+        QTest.qWait(2000)
+        
         
         self.close()
         
@@ -95,7 +111,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         self.textBrowser.setText(joueur.pokemon_choisi.name + " utilise une attaque neutre")
         
         
-        time.sleep(1)
+        QTest.qWait(2000)
 
         
         # On met à jour l'affichage         
@@ -125,13 +141,14 @@ class Combat(QMainWindow, Ui_MainWindow):
             self.close()
         
         else :
-            time.sleep(1)
+            
+            QTest.qWait(2000)
             
             # Le pokemon adverse attaque
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
             self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque spéciale")
             
-            time.sleep(1)
+            QTest.qWait(2000)
             
             # On met à jour l'affichage des hp du pokemon choisi
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
@@ -192,7 +209,7 @@ class Combat(QMainWindow, Ui_MainWindow):
         
         else :
             
-            time.sleep(1)
+            QTest.qWait(2000)
             
             # Le pokemon adverse utilise une attaque spéciale
             degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)

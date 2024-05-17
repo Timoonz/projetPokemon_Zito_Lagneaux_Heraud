@@ -16,7 +16,7 @@ from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QListWidget
 from PyQt5.QtGui import QPixmap
 from GUI_Combat_code import *
 from Inventory import *
-
+from  PyQt5.QtTest import QTest
 
 class Game(QMainWindow) :
     def __init__(self) : 
@@ -106,7 +106,10 @@ class Game(QMainWindow) :
         self.fight.barre_hp_choisi.setValue(100)
         self.fight.reset_hp()
         self.fight.update()
+        self.fight.textBrowser.setText("un " + joueur.pokemon_adverse.name + " est apparu !")        
         self.fight.show()
+        QTest.qWait(2000)
+        self.fight.textBrowser.setText("C'est un pokemon de type " + joueur.pokemon_adverse.type_pokemon() + ".")
         
         
     def open_inventory(self):
