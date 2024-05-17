@@ -10,6 +10,9 @@ from GUI_Choix_pokemon import *
 from Extraction_des_donnes import Pokemon_sauvage
 from  PyQt5.QtTest import QTest
 
+
+# Combat
+
 ko = 0
 
 def attaque_ennemi(pokemon_sauvage, pokemon_choisi) :
@@ -63,6 +66,10 @@ class Combat(QMainWindow, Ui_MainWindow):
             
     def Chgt_pokemon(self):
         
+        '''
+        Cette fonction permet au joueur de changer de pokemon
+        '''
+        
         #Le test permet de savoir si tous les pokemons du joueurs sont ko
         if ko == len(joueur.inventaire) :
             
@@ -105,7 +112,12 @@ class Combat(QMainWindow, Ui_MainWindow):
                    
             self.update()
         
+        
     def fuite(self):
+        
+        '''
+        Cette fonction permet au joueur de prendre la fuite
+        '''
         
         global ko
         
@@ -120,85 +132,97 @@ class Combat(QMainWindow, Ui_MainWindow):
         
     def attaque_neutre(self) :
         
+        '''
+        Cette fonction permet au joueur de lancer une attaque neutre
+        '''
+        
         global ko
         
-        if joueur.pokemon_choisi.isKo == False :
-            # Le pokemon choisi lance l'attaque neutre définie dans la classe Pokemon
-            degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
-            self.textBrowser.setText(joueur.pokemon_choisi.name + " utilise une attaque neutre")
+        if joueur.pokemon_choisi.speed >= joueur.pokemon_adverse.speed :
             
-            
-            QTest.qWait(2000)
-    
-            
-            # On met à jour l'affichage         
-            self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
-            self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
-            joueur.pokemon_adverse.hp -= degats
-            self.update()
+            if joueur.pokemon_choisi.isKo == False :
+                # Le pokemon choisi lance l'attaque neutre définie dans la classe Pokemon
+                degats = joueur.pokemon_choisi.attaque_neutre(joueur.detecter(Pokemon_sauvage)[1])
+                self.textBrowser.setText(joueur.pokemon_choisi.name + " utilise une attaque neutre")
+                
+                
+                QTest.qWait(2000)
         
+                
+                # On met à jour l'affichage         
+                self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
+                self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
+                joueur.pokemon_adverse.hp -= degats
+                self.update()
+            
+            
+            # Gestion du cas où le pokemon adverse est ko
+            if joueur.pokemon_adverse.hp <= 0 :
+                joueur.pokemon_adverse.hp = 0
+                
+                # On met à jour l'affichage des hp du pokemon adverse
+                self.barre_hp_adverse.setValue(0)
+                self.textBrowser.setText(joueur.pokemon_adverse.name + " a été capturé avec succès !")
+                
+                # On retire le pokemon sauvage de la map, on l'ajoute à l'inventaire du joueur et on reset ses hp
+                joueur.pokemon_adverse.position = [-10,-10]
+                joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
+                joueur.inventaire.append(joueur.pokemon_adverse)
+                Pokemon_sauvage.remove(joueur.pokemon_adverse)
+                
+                # Le combat est terminé donc plus aucun pokemon n'est ko 
+                ko = 0
+                
+                QTest.qWait(2000)
+                
+                self.close()
+            
+            else :
+                
+                QTest.qWait(2000)
+                
+                # Le pokemon adverse attaque
+                degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
+                self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque spéciale")
+                
+                QTest.qWait(2000)
+                
+                # On met à jour l'affichage des hp du pokemon choisi
+                self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
+                self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
+                joueur.pokemon_choisi.hp -= degats
+                
+                
+            # Gestion du cas où le pokemon choisi est ko
+            if joueur.pokemon_choisi.hp<= 0 :
+                joueur.pokemon_choisi.hp = 0
+                
+                # On met à jour l'affichage des hp du pokemon choisi
+                self.barre_hp_choisi.setValue(0)
+                self.textBrowser.setText(joueur.pokemon_choisi.name + " a été mis hors combat !")
+                
+                QTest.qWait(1000)
+                
+                # On ajoute 1 au compteur de pokemons ko
+                ko += 1
+                
+                # On met à jour isKo
+                joueur.pokemon_choisi.isKo = True
+                
+                # On met à jour l'affichage et on oblige le joueur à changer de pokemon
+                self.update()
+                self.Chgt_pokemon()
+   
         
-        # Gestion du cas où le pokemon adverse est ko
-        if joueur.pokemon_adverse.hp <= 0 :
-            joueur.pokemon_adverse.hp = 0
-            
-            # On met à jour l'affichage des hp du pokemon adverse
-            self.barre_hp_adverse.setValue(0)
-            self.textBrowser.setText(joueur.pokemon_adverse.name + " a été capturé avec succès !")
-            
-            # On retire le pokemon sauvage de la map, on l'ajoute à l'inventaire du joueur et on reset ses hp
-            joueur.pokemon_adverse.position = [-10,-10]
-            joueur.pokemon_adverse.hp = joueur.pokemon_adverse.hp_init
-            joueur.inventaire.append(joueur.pokemon_adverse)
-            Pokemon_sauvage.remove(joueur.pokemon_adverse)
-            
-            # Le combat est terminé donc plus aucun pokemon n'est ko 
-            ko = 0
-            
-            QTest.qWait(2000)
-            
-            self.close()
+            # On met à jour l'affichage
+            self.update() 
         
-        else :
-            
-            QTest.qWait(2000)
-            
-            # Le pokemon adverse attaque
-            degats = attaque_ennemi(joueur.pokemon_adverse, joueur.pokemon_choisi)
-            self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque spéciale")
-            
-            QTest.qWait(2000)
-            
-            # On met à jour l'affichage des hp du pokemon choisi
-            self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
-            self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
-            joueur.pokemon_choisi.hp -= degats
-            
-            
-        # Gestion du cas où le pokemon choisi est ko
-        if joueur.pokemon_choisi.hp<= 0 :
-            joueur.pokemon_choisi.hp = 0
-            
-            # On met à jour l'affichage des hp du pokemon choisi
-            self.barre_hp_choisi.setValue(0)
-            self.textBrowser.setText(joueur.pokemon_choisi.name + " a été mis hors combat !")
-            
-            QTest.qWait(1000)
-            
-            # On ajoute 1 au compteur de pokemons ko
-            ko += 1
-            
-            # On met à jour isKo
-            joueur.pokemon_choisi.isKo = True
-            
-            # On met à jour l'affichage et on oblige le joueur à changer de pokemon
-            self.update()
-            self.Chgt_pokemon()
-            
-        # On met à jour l'affichage
-        self.update()   
         
     def attaque_speciale(self) :
+        
+        '''
+        Cette fonction permet au joueur de lancer une attaque spéciale
+        '''
         
         global ko
         
