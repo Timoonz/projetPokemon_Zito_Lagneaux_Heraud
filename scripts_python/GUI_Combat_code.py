@@ -175,6 +175,9 @@ class Combat(QMainWindow, Ui_MainWindow):
             
             QTest.qWait(2000)
             
+            if len(joueur.inventaire)-3 == 200 :
+                pass
+            
             self.close()
         
         else :
@@ -258,6 +261,9 @@ class Combat(QMainWindow, Ui_MainWindow):
             ko = 0
             
             QTest.qWait(2000)
+            
+            if len(joueur.inventaire)-3 == 200 :
+                pass
             
             self.close()
         
