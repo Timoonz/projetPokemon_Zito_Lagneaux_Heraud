@@ -33,12 +33,12 @@ La formule officielle du calcul des dégats contenant des données non fournies,
 
 ### Pour les attaques neutres
 La formule utilisée est la suivante :
-$$\frac{attaque * 10}{deffenseennemi}$$
+$$\frac{attaque \times 10}{deffenseennemi}$$
 
 ### Pour les attaques spéciales
 Chaques type à ses forces et ses faiblasses. Par exemple le type feu est fort face au type glace, mais faible face au type eau. Il existe donc des coefficients multiplicateurs à utiliser.
 La formule utilisée est la suivante :
-$$\frac{attaquespeciale * 10}{deffensespecialeennemi}$$ * CM
+$$\frac{attaquespeciale \times 10}{deffensespecialeennemi} \times CM $$
 
 CM étant le coefficiant multiplicateur correspondant aux types des pokemons en jeu.
 
