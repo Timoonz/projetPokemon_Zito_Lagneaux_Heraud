@@ -25,7 +25,7 @@ class Ui_Inventory(QWidget):
         self.Liste_pokemons = QListWidget()
                 
         self.Compteur = QtWidgets.QTextBrowser()
-        self.Compteur.setText(str(len(joueur.inventaire)-3) + " / 300 ont été capturés" )
+        self.Compteur.setText(str(len(joueur.inventaire)-3) + " / 200 ont été capturés" )
         
 
 
