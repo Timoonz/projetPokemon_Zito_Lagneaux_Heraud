@@ -4,7 +4,7 @@ Created on Mon May  6 11:32:26 2024
 
 @author: timot
 """
-from MapAndSprite import Map, Player
+from MapAndSprite import *
 
 import sys
 
@@ -16,7 +16,6 @@ from GUI_Combat_code import *
 from Inventory import *
 
 
-
 class Game(QMainWindow) :
     def __init__(self) : 
         QMainWindow.__init__(self)
@@ -26,34 +25,58 @@ class Game(QMainWindow) :
     def keyReleaseEvent(self, event) : 
         if event.key() == Qt.Key_Up and not event.isAutoRepeat():
             self.map.move("up")
-            if joueur.detecter(Pokemon_sauvage)[0]:
+            # if joueur.detecter(Pokemon_sauvage)[0]:
                 
                
-                self.open_fight()
+            #     self.open_fight()
                 
                 
         if event.key() == Qt.Key_Down and not event.isAutoRepeat(): 
             self.map.move("down")
-            if joueur.detecter(Pokemon_sauvage)[0]:
+            # if joueur.detecter(Pokemon_sauvage)[0]:
                 
-                self.open_fight()
+            #     self.open_fight()
                 
                 
         if event.key() == Qt.Key_Left and not event.isAutoRepeat(): 
             self.map.move("left")
-            if joueur.detecter(Pokemon_sauvage)[0]:
+            # if joueur.detecter(Pokemon_sauvage)[0]:
                 
-                self.open_fight()
+            #     self.open_fight()
                 
                 
         if event.key() == Qt.Key_Right and not event.isAutoRepeat(): 
             self.map.move("right")
-            if joueur.detecter(Pokemon_sauvage)[0]:
+            # if joueur.detecter(Pokemon_sauvage)[0]:
                 
-                self.open_fight()
+            #     self.open_fight()
         
         if event.key() == Qt.Key_I :
             self.open_inventory()
+            
+        if event.key() == Qt.Key_H :
+            j_p = str(joueur.position)
+            Bloque_h.append(eval(j_p))
+            print(j_p)
+            print(Bloque_h)
+            
+        if event.key() == Qt.Key_B :
+            j_p = str(joueur.position)
+            Bloque_b.append(eval(j_p))
+            print(j_p)
+            print(Bloque_b)
+        
+        if event.key() == Qt.Key_G :
+            j_p = str(joueur.position)
+            Bloque_g.append(eval(j_p))
+            print(j_p)
+            print(Bloque_g)
+        
+        if event.key() == Qt.Key_D :
+            j_p = str(joueur.position)
+            Bloque_d.append(eval(j_p))
+            print(j_p)
+            print(Bloque_d)
                 
                 
     
