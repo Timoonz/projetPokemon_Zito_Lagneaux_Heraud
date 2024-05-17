@@ -62,5 +62,5 @@ Equipe sur ce projet :
 
 ### Dans le repertoire "sound", vous avez :
 * Le générique de pokemon par Johnny Hallyday
-* singing_player.wac
+* singing_player.wav
 
