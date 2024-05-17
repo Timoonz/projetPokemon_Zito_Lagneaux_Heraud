@@ -10,11 +10,24 @@ pokemons_map = pd.read_csv('../data/pokemon_coordinates.csv')
 Pokemon_sauvage = []
 
 def coordonnees_aleatoires() :
+    
+    '''
+    Cette fonction genere des coordonnées aléatoires dans la carte
+    
+    sortie :
+        list
+    '''
+    
     return [rd.randrange(-1, 30), rd.randrange(-30,0)] 
 
-for i in range (300) :
-    for j in range (151) :
+# Création de la liste contenant tous les pokemons sauvages sur la cartes
+
+for i in range (300) :                  # Pour un soucis de clarté, nous avons choisi de garder 300 pokemons
+    
+    for j in range (151) :              # Parcours de tous les pokemons existants
         
+        # Attribution de chaque pokemon à sa classe associée
+    
         if pokemons_map.iloc[i,0] == types_pokemon.iloc[j,1] :
             
             if types_pokemon.iloc[j,2] == "Fire" :
