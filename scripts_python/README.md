@@ -1,8 +1,15 @@
 # Guide d'utilisation pour le jeu
+Auteurs :
+*HERAUD Timothée
+*LAGNEAUX Abigaëlle
+*ZITO Nicolas 
 
 ## Comment jouer ?
 Pour lancer le jeu, veuillez lancer le fichier main.py.
-Pour se déplacer, appuyez sur les flèches de votre clavier. Attention, vous de pouvez pas marcher sur les arbres et les batiments !
+
+Pour se déplacer, appuyez sur les flèches de votre clavier. 
+Attention, vous de pouvez pas marcher sur les arbres et les batiments !
+
 Si vous voulez ouvrir votre inventaire sur la carte, appuyez sur la touche i de votre clavier.
 
 Lorsqu'un combat avec un pokemon sauvage est lancé, quatre options s'offrent à vous :
@@ -35,7 +42,7 @@ Dans le cas où le pokemon adverse n'est ni avantagé ni désaavantagé, le poke
 
 ## Détail des différents fichiers
 
-### Extraction_des_donnes.py
+### Extraction_des_donnees.py
 Ce fichier permet d'extraire les données mises à disposition. Il selectionne 300 pokemons qu'il répartit de manière aléatoire sur la carte.
 Il affecte à chaque pokemon sa classe, pour ainsi lui donner ses attributs et méthodes.
 L'équipe a fait le choix de ne pas utiliser les coordonnées fournies dans data pour une meilleure répartition sur la carte.
