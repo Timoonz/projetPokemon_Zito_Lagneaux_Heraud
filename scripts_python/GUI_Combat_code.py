@@ -1,19 +1,14 @@
 import random as rd
-import time
 from GUI_Combat import *
-from POKEMON import *
+from POKEMON import joueur
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
 from PyQt5.QtGui import QPixmap
 from GUI_Choix_pokemon import *
-from Extraction_des_donnes import *
+from Extraction_des_donnes import Pokemon_sauvage
 from  PyQt5.QtTest import QTest
 
 ko = 0
-Bloque_h = []
-Bloque_b = []
-Bloque_g = []
-Bloque_d = []
 
 def attaque_ennemi(pokemon_sauvage, pokemon_choisi) :
     
@@ -79,11 +74,11 @@ class Combat(QMainWindow, Ui_MainWindow):
             
             # On met à jour la barre d'hp, l'affichage des hp et on envoie un message indiquant
             # quel est le pokemon envoyé au combat  
-            self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque") 
+            self.textBrowser.setText(joueur.pokemon_adverse.name + " lance une attaque.") 
             
             QTest.qWait(2000)
             
-            self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie")
+            self.textBrowser.setText(joueur.pokemon_choisi.name + " a perdu " + str(degats) + " points de vie.")
             self.barre_hp_choisi.setValue(int((joueur.pokemon_choisi.hp - degats) * 100 / joueur.pokemon_choisi.hp_init))
                        
             joueur.pokemon_choisi.hp -= degats
@@ -172,6 +167,9 @@ class Combat(QMainWindow, Ui_MainWindow):
             # On ajoute 1 au compteur de pokemons ko
             ko += 1
             
+            # On met à jour isKo
+            joueur.pokemon_choisi.isKo = True
+            
             # On met à jour l'affichage et on oblige le joueur à changer de pokemon
             self.update()
             self.Chgt_pokemon()
@@ -228,7 +226,7 @@ class Combat(QMainWindow, Ui_MainWindow):
             joueur.pokemon_choisi.hp -= degats
         
         # Gestion du cas ou le pokemon choisi est ko
-        if joueur.pokemon_choisi.hp<= 0 :
+        if joueur.pokemon_choisi.hp <= 0 :
             
             # On met à jour l'affichage
             joueur.pokemon_choisi.hp = 0
@@ -237,6 +235,9 @@ class Combat(QMainWindow, Ui_MainWindow):
             
             # On ajoute 1 au compteur de pokemons ko
             ko += 1
+            
+            # On met à jour isKo
+            joueur.pokemon_choisi.isKo = True
             
             # On met à jour l'affichage
             self.update()
@@ -259,8 +260,9 @@ class Combat(QMainWindow, Ui_MainWindow):
         self.Pokemon_Face_HP.setText( "HP " + str(joueur.pokemon_adverse.hp) + "/" + str(joueur.pokemon_adverse.hp_init))
         
     def reset_hp(self):
-        for i in joueur.inventaire:
-            i.hp = i.hp_init
+        for pokemon in joueur.inventaire:
+            pokemon.hp = pokemon.hp_init
+            pokemon.isKo = False
         
 class Choix(QDialog):
     
