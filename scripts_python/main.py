@@ -14,13 +14,10 @@ from PyQt5 import QtWidgets
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow
 from GUI_Combat_code import *
-<<<<<<< HEAD
-from Inventory import *
 from  PyQt5.QtTest import QTest
-=======
 import Inventory as inv
 
->>>>>>> 295c852110064e89fd8e78df6e74bf32731a0301
+
 
 class Game(QMainWindow) :
     def __init__(self) : 

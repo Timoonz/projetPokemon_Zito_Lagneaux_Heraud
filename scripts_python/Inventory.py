@@ -23,17 +23,15 @@ class Ui_Inventory(QWidget):
 
 
         self.Liste_pokemons = QListWidget()
-        
-<<<<<<< HEAD
-        
+                
         self.Compteur = QtWidgets.QTextBrowser()
         self.Compteur.setText(str(len(joueur.inventaire)) + " / 300 ont été capturés" )
         
 
-=======
+
         # On récupère les pokemons presents dans l'invenatire du joueur pour l'afficher dans la fenetre
         
->>>>>>> 295c852110064e89fd8e78df6e74bf32731a0301
+
         for i in range(len(joueur.inventaire)):
             self.Liste_pokemons.addItem(str(joueur.inventaire[i].name))
 
