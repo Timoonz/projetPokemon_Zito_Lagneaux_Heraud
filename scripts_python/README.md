@@ -18,14 +18,16 @@ Lorsque vous gagnez un combat, le pokemon sauvage disparrait de la carte et s'aj
 
 ## Détails sur les dégats dans les combats
 
+La formule officielle du calcul des dégats contenant des données non fournies, l'équipe a choisi de s'en inspirer et de créer les formules suivantes.
+
 ### Pour les attaques neutres
 La formule utilisée est la suivante :
-$$\frac{attaque * 15}{deffenseennemi}$$
+$$\frac{attaque * 10}{deffenseennemi}$$
 
 ### Pour les attaques spéciales
 Chaques type à ses forces et ses faiblasses. Par exemple le type feu est fort face au type glace, mais faible face au type eau. Il existe donc des coefficients multiplicateurs à utiliser.
 La formule utilisée est la suivante :
-$$\frac{attaquespeciale * 15}{deffensespecialeennemi}$$
+$$\frac{attaquespeciale * 10}{deffensespecialeennemi}$$
 
 ### Détails sur la réponse de l'adversaire
 L'adversaire attaque "intelligemment" : si son type l'avantage par rapport au type de votre pokemon, il fera une attaque spéciale, s'il est désaventagé il lancera une attaque neutre.
@@ -53,3 +55,4 @@ Cette fenêtre permet au joueur de voir tous les pokemons dont il dispose pour s
 ### MapAndSprite.py
 
 ### POKEMON.py
+Ce fichier définit les différentes classe de Pokemons et la classe joueur.
