@@ -23,7 +23,9 @@ class Ui_Inventory(QWidget):
 
 
         self.Liste_pokemons = QListWidget()
-
+        
+        # On récupère les pokemons presents dans l'invenatire du joueur pour l'afficher dans la fenetre
+        
         for i in range(len(joueur.inventaire)):
             self.Liste_pokemons.addItem(str(joueur.inventaire[i].name))
 
