@@ -5,11 +5,14 @@ Created on Mon May  6 11:31:09 2024
 @author: timot
 """
 
-#from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QLabel
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtTest import QTest 
 import POKEMON as pk
+
+
+##Implémentation des limites de notre carte
 
 Limite_h = [[-1.0, 0], [-0.5, 0],[0.0, 0],[0.5, 0],[0.5, -1.5],[1.0, -1.5],[1.5, -9.5],[2.0, -9.5],[2.5, -9.5],[3.0, -9.5],[3.5, 0.0],
             [4.0, 3.0],[4.5, 3.0],[5.0, 3.0],[5.5, 3.0],[6.0, 3.0],[6.5, 3.0],[7.0, 3.0],[7.5, 3.0],[8.0, 3.0],[8.5, 3.0],[9.0, 3.0],
@@ -102,6 +105,7 @@ Limite_d = [[0.5, 0],[0.5, -0.5],[0.0, -1.0],[1.0, -1.5],[1.0, -2.0],[1.0, -2.5]
             [6.5, -20.5],[6.5, -21.0],[6.5, -21.5],[6.5, -22.0],[6.5, -22.5],[6.5, -23.0],[6.5, -23.5],[6.5, -24.0],[6.5, -24.5],
             [6.5, -25.0],[6.5, -25.5]]
 
+#Classe contenant notre carte
 class Map() : 
     
     def __init__(self, mainWindow, mapPath) : 
@@ -119,40 +123,65 @@ class Map() :
         
         if direction == "up" and pk.joueur.position not in Limite_h:
             
+            #Mise à jour de la position 
             pos.translate(0, 25)
             pk.joueur.position[1] += 0.5
-            
             self.map.setGeometry(pos)
-            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up.png"))
             
+            #Animation du personnage
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up_1.png"))
+            QTest.qWait(75)
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up_2.png"))
+            QTest.qWait(75)
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_up_standing.png"))
+
 
         if direction == "down" and pk.joueur.position not in Limite_b:
             
+            #Mise à jour de la position
             pos.translate(0, -25)
             pk.joueur.position[1] -= 0.5
-            
             self.map.setGeometry(pos)
-            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_down.png"))
+            
+            #Animation du personnage
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_down_1.png"))
+            QTest.qWait(75)
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_down_2.png"))
+            QTest.qWait(75)
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_standing.png"))
             
 
         if direction == "left" and pk.joueur.position not in Limite_g :
-
+            
+            #Mise à jour de la position
             pos.translate(25, 0)
             pk.joueur.position[0] -= 0.5
-            
             self.map.setGeometry(pos)
-            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left.png"))
+            
+            #Animation du personnage
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left_1.png"))
+            QTest.qWait(75)
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left_2.png"))
+            QTest.qWait(75)
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_left_standing.png"))
             
 
         if direction == "right" and pk.joueur.position not in Limite_d :
             
+            #Mise à jour de la position
             pos.translate(-25, 0)
             pk.joueur.position[0] += 0.5
-            
             self.map.setGeometry(pos)
-            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right.png"))
             
-       
+            #Animation du personnage
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right_1.png"))
+            QTest.qWait(75)
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right_2.png"))
+            QTest.qWait(75)
+            self.mainWindow.player.sprite.setPixmap(QPixmap("../sprites_ow/player_ow_right_standing.png"))
+            
+
+#Classe servant à représenter le personnage sur la carte
 class PlayerSprite() : 
     
     def __init__(self, mainWindow, spritePath) :
