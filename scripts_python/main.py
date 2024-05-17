@@ -4,7 +4,9 @@ Created on Mon May  6 11:32:26 2024
 
 @author: timot
 """
-from MapAndSprite import *
+
+from MapAndSprite import Map, PlayerSprite
+
 
 import sys
 
@@ -54,29 +56,32 @@ class Game(QMainWindow) :
         if event.key() == Qt.Key_I :
             self.open_inventory()
             
-        if event.key() == Qt.Key_H :
-            j_p = str(joueur.position)
-            Bloque_h.append(eval(j_p))
-            print(j_p)
-            print(Bloque_h)
+        if event.key() == Qt.Key_P :
+            print(joueur.position)
             
-        if event.key() == Qt.Key_B :
-            j_p = str(joueur.position)
-            Bloque_b.append(eval(j_p))
-            print(j_p)
-            print(Bloque_b)
+        # if event.key() == Qt.Key_H :
+        #     j_p = str(joueur.position)
+        #     Bloque_h.append(eval(j_p))
+        #     print(j_p)
+        #     print(Bloque_h)
+            
+        # if event.key() == Qt.Key_B :
+        #     j_p = str(joueur.position)
+        #     Bloque_b.append(eval(j_p))
+        #     print(j_p)
+        #     print(Bloque_b)
         
-        if event.key() == Qt.Key_G :
-            j_p = str(joueur.position)
-            Bloque_g.append(eval(j_p))
-            print(j_p)
-            print(Bloque_g)
+        # if event.key() == Qt.Key_G :
+        #     j_p = str(joueur.position)
+        #     Bloque_g.append(eval(j_p))
+        #     print(j_p)
+        #     print(Bloque_g)
         
-        if event.key() == Qt.Key_D :
-            j_p = str(joueur.position)
-            Bloque_d.append(eval(j_p))
-            print(j_p)
-            print(Bloque_d)
+        # if event.key() == Qt.Key_D :
+        #     j_p = str(joueur.position)
+        #     Bloque_d.append(eval(j_p))
+        #     print(j_p)
+        #     print(Bloque_d)
                 
                 
     
@@ -88,7 +93,7 @@ class Game(QMainWindow) :
         
         #Ajout de la carte et du sprite du perso principal
         self.map = Map(self, "../sprites_ow/Map_finale.png")
-        self.player = Player(self, "../sprites_ow/player_ow_standing.png")
+        self.player = PlayerSprite(self, "../sprites_ow/player_ow_standing.png")
        
         
         
@@ -105,6 +110,7 @@ class Game(QMainWindow) :
         
         
     def open_inventory(self):
+        
         # Crée une fenêtre secondaire avec un ListWidget
         self.inventory = Ui_Inventory()
         self.inventory.show()

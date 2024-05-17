@@ -2,13 +2,17 @@
 
 import pandas as pd
 import POKEMON as p
+import random as rd
 
 types_pokemon = pd.read_csv('../data/pokemon_first_gen.csv')
 pokemons_map = pd.read_csv('../data/pokemon_coordinates.csv')
 
 Pokemon_sauvage = []
 
-for i in range (998) :
+def coordonnees_aleatoires() :
+    return [rd.randrange(-1, 30), rd.randrange(-30,0)] 
+
+for i in range (300) :
     for j in range (151) :
         
         if pokemons_map.iloc[i,0] == types_pokemon.iloc[j,1] :
@@ -19,7 +23,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))
+                                             coordonnees_aleatoires()))
             
             if types_pokemon.iloc[j,2] == "Water" :
                 
@@ -27,7 +31,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))
+                                             coordonnees_aleatoires()))
             
             if types_pokemon.iloc[j,2] == "Bug" :
                 
@@ -35,7 +39,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))
+                                             coordonnees_aleatoires()))
                 
             if types_pokemon.iloc[j,2] == "Normal" :
                 
@@ -43,7 +47,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))
+                                             coordonnees_aleatoires()))
                 
             if types_pokemon.iloc[j,2] == "Electric" :
                 
@@ -51,7 +55,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))
+                                             coordonnees_aleatoires()))
                 
             if types_pokemon.iloc[j,2] == "Poison" :
                 
@@ -59,7 +63,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))               
+                                             coordonnees_aleatoires()))               
                 
             if types_pokemon.iloc[j,2] == "Ground" :
                 
@@ -67,7 +71,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))               
+                                             coordonnees_aleatoires()))               
                 
             if types_pokemon.iloc[j,2] == "Fairy" :
                 
@@ -75,7 +79,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))              
+                                             coordonnees_aleatoires()))              
                 
             if types_pokemon.iloc[j,2] == "Fighting" :
                 
@@ -83,7 +87,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))               
+                                             coordonnees_aleatoires()))               
                 
             if types_pokemon.iloc[j,2] == "Psychic" :
                 
@@ -91,7 +95,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))              
+                                             coordonnees_aleatoires()))              
                 
             if types_pokemon.iloc[j,2] == "Ice" :
                 
@@ -99,7 +103,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))               
+                                             coordonnees_aleatoires()))               
                 
             if types_pokemon.iloc[j,2] == "Flying" :
                 
@@ -107,7 +111,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))              
+                                             coordonnees_aleatoires()))              
                 
             if types_pokemon.iloc[j,2] == "Dragon" :
                 
@@ -115,7 +119,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))               
+                                             coordonnees_aleatoires()))               
            
             if types_pokemon.iloc[j,2] == "Ghost" :
                 
@@ -123,7 +127,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))           
+                                             coordonnees_aleatoires()))           
             
             if types_pokemon.iloc[j,2] == "Rock" :
                 
@@ -131,7 +135,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))          
+                                             coordonnees_aleatoires()))          
             
             if types_pokemon.iloc[j,2] == "Grass" :
                 
@@ -139,7 +143,7 @@ for i in range (998) :
                                              types_pokemon.iloc[j,6],types_pokemon.iloc[j,7], 
                                              types_pokemon.iloc[j,8], types_pokemon.iloc[j,9],
                                              types_pokemon.iloc[j,10],types_pokemon.iloc[j,12],  
-                                             eval(pokemons_map.iloc[i,1])))            
+                                             coordonnees_aleatoires()))            
                 
                 
                 
