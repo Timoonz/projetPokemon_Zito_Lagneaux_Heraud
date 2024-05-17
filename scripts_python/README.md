@@ -1,6 +1,7 @@
 # Guide d'utilisation pour le jeu
 
 ## Comment jouer ?
+Pour lancer le jeu, veuillez lancer le fichier main.py.
 Pour se déplacer, appuyez sur les flèches de votre clavier. Attention, vous de pouvez pas marcher sur les arbres et les batiments !
 Si vous voulez ouvrir votre inventaire sur la carte, appuyez sur la touche i de votre clavier.
 
@@ -9,6 +10,7 @@ Lorsqu'un combat avec un pokemon sauvage est lancé, quatre options s'offrent à
   - Attaque spéciale
   - Fuir
   - Changer de pokemon
+
 Pour utiliser l'une des ces quatre options, appuyez sur les cases correspondantes.
 En dehors de la fuite, chaque options mènent le pokemon adverse à attaquer, et donc vous recevez des dégats.
 
@@ -28,3 +30,26 @@ $$\frac{attaquespeciale * 15}{deffensespecialeennemi}$$
 ### Détails sur la réponse de l'adversaire
 L'adversaire attaque "intelligemment" : si son type l'avantage par rapport au type de votre pokemon, il fera une attaque spéciale, s'il est désaventagé il lancera une attaque neutre.
 Dans le cas où le pokemon adverse n'est ni avantagé ni désaavantagé, le pokemon adverse lancera de manière aléatoire soit une attaque neutre soit une attaque spéciale.
+
+## Détail des différents fichiers
+
+### Extraction_des_donnes.py
+Ce fichier permet d'extraire les données mises à disposition. Il selectionne 300 pokemons qu'il répartit de manière aléatoire sur la carte.
+Il affecte à chaque pokemon sa classe, pour ainsi lui donner ses attributs et méthodes.
+L'équipe a fait le choix de ne pas utiliser les coordonnées fournies dans data pour une meilleure répartition sur la carte.
+
+### GUI_Choix_Pokemon.py
+
+### GUI_Combat.py
+
+### GUI_Combat_code.py
+
+### Inventory.py
+Ce fichier permet la création de la fenêtre Inventory, disponible lorsque vous appuyez sur la touche i.
+Cette fenêtre permet au joueur de voir tous les pokemons dont il dispose pour ses prochains comabts.
+
+### main.py
+
+### MapAndSprite.py
+
+### POKEMON.py
