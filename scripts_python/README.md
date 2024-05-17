@@ -38,7 +38,9 @@ $$\frac{attaque * 10}{deffenseennemi}$$
 ### Pour les attaques spéciales
 Chaques type à ses forces et ses faiblasses. Par exemple le type feu est fort face au type glace, mais faible face au type eau. Il existe donc des coefficients multiplicateurs à utiliser.
 La formule utilisée est la suivante :
-$$\frac{attaquespeciale * 10}{deffensespecialeennemi}$$
+$$\frac{attaquespeciale * 10}{deffensespecialeennemi}$$ * CM
+
+CM étant le coefficiant multiplicateur correspondant aux types des pokemons en jeu.
 
 ### Détails sur la réponse de l'adversaire
 L'adversaire attaque "intelligemment" : si son type l'avantage par rapport au type de votre pokemon, il fera une attaque spéciale, s'il est désaventagé il lancera une attaque neutre.
@@ -46,24 +48,30 @@ Dans le cas où le pokemon adverse n'est ni avantagé ni désaavantagé, le poke
 
 ## Détail des différents fichiers
 
-### Extraction_des_donnees.py
+#### Extraction_des_donnees.py
 Ce fichier permet d'extraire les données mises à disposition. Il selectionne 300 pokemons qu'il répartit de manière aléatoire sur la carte.
 Il affecte à chaque pokemon sa classe, pour ainsi lui donner ses attributs et méthodes.
 L'équipe a fait le choix de ne pas utiliser les coordonnées fournies dans data pour une meilleure répartition sur la carte.
 
-### GUI_Choix_Pokemon.py
+#### GUI_Choix_Pokemon.py
+Ce fichier permet la création de la boite de dialogue pour le changement de pokemon lors d'un combat.
+Cette fenêtre montre les pokemons disponibles au joueur et permet une selection.
 
-### GUI_Combat.py
+#### GUI_Combat.py
+Ce fichier permet de créer la fenetre liée au combat. 
 
-### GUI_Combat_code.py
+#### GUI_Combat_code.py
+Ce fichier permet de coder tout le combat. Il relie ntamment les bouttons aux actions et met à jour la fenêtre de combat.
 
-### Inventory.py
+#### Inventory.py
 Ce fichier permet la création de la fenêtre Inventory, disponible lorsque vous appuyez sur la touche i.
 Cette fenêtre permet au joueur de voir tous les pokemons dont il dispose pour ses prochains comabts.
 
-### main.py
+#### main.py
+Ce fichier est le fichier permettant de jouer.
 
-### MapAndSprite.py
+#### MapAndSprite.py
+Ce fichier définit la map, les collisions et les déplacements du joueur. 
 
-### POKEMON.py
+#### POKEMON.py
 Ce fichier définit les différentes classe de Pokemons et la classe joueur.
