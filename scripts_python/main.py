@@ -1,5 +1,6 @@
-from MapAndSprite import Map, PlayerSprite
+# Importations
 
+from MapAndSprite import Map, PlayerSprite
 
 import sys
 
@@ -12,14 +13,23 @@ from  PyQt5.QtTest import QTest
 import Inventory as inv
 import POKEMON as pk
 
+# Game
 
 class Game(QMainWindow) :
+    
     def __init__(self) : 
         QMainWindow.__init__(self)
         self.setEnabled(True)
         self.fight = None
         
     def keyReleaseEvent(self, event) : 
+        
+        '''
+        Cette fonction permet d'associer des touches du clavier à des fonctions/méthodes
+        '''
+        
+        # On associe les flèches aux déplacements du joueur
+        
         if event.key() == Qt.Key_Up and not event.isAutoRepeat():
             self.map.move("up")
             if pk.joueur.detecter(data.Pokemon_sauvage)[0]:
@@ -43,10 +53,11 @@ class Game(QMainWindow) :
             if pk.joueur.detecter(data.Pokemon_sauvage)[0]:
                 self.open_fight()
         
-        # Pour afficher l'inventaire
+        # Association de la touche i à l'ouverture de l'inventaire
         if event.key() == Qt.Key_I :
             self.open_inventory()
             
+        # Association de la touche c à la méthode chanter 
         if event.key() == Qt.Key_C :
             pk.joueur.chanter()
             
@@ -93,6 +104,9 @@ class Game(QMainWindow) :
         
     def open_fight(self):
         
+        '''
+        Cette fonction permet d'ouvrir le combat entre le pokemon du joueur et le pokemon détecté
+        '''
         
         pk.joueur.pokemon_adverse = pk.joueur.detecter(data.Pokemon_sauvage)[1]
         self.fight = combat.Combat()
@@ -107,6 +121,10 @@ class Game(QMainWindow) :
         
         
     def open_inventory(self):
+        
+        '''
+        Cette fonction permet d'ouvrir la fenêtre de l'inventaire
+        '''
         
         # Crée une fenêtre secondaire avec un ListWidget qui fait figure d'inventaire
         self.inventory = inv.Ui_Inventory()

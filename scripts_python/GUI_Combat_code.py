@@ -185,6 +185,8 @@ class Combat(QMainWindow, Ui_MainWindow):
         degats = joueur.pokemon_choisi.attaque_speciale(joueur.pokemon_adverse)
         self.textBrowser.setText(joueur.pokemon_choisi.name + " lance une attaque spéciale")
         
+        QTest.qWait(2000)
+        
         # On met à jour l'affichage des hp du pokemon adverse
         self.barre_hp_adverse.setValue(int((joueur.pokemon_adverse.hp - degats) * 100 / joueur.pokemon_adverse.hp_init))
         self.textBrowser.setText(joueur.pokemon_adverse.name + " a perdu " + str(degats) + " points de vie")
