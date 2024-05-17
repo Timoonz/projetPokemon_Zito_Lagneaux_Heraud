@@ -16,6 +16,8 @@ Attention, vous de pouvez pas marcher sur les arbres et les batiments !
 
 Si vous voulez ouvrir votre inventaire sur la carte, appuyez sur la touche i de votre clavier.
 
+Si vous voulez chanter le générique de Pokemon avec la voix de Johnny Hallyday, appuyez sur la touche c de votre clavier.
+
 Lorsqu'un combat avec un pokemon sauvage est lancé, quatre options s'offrent à vous :
   - Attaque neutre
   - Attaque spéciale

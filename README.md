@@ -60,3 +60,7 @@ Equipe sur ce projet :
 * Une image de fond pour les combats
 * Une image blanche pour les combats
 
+### Dans le repertoire "sound", vous avez :
+* Le générique de pokemon par Johnny Hallyday
+* singing_player.wav
+
