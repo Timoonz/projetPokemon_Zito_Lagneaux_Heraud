@@ -30,7 +30,7 @@ En dehors de la fuite, chaque options mène le pokemon adverse à attaquer, et d
 Lorsque vous gagnez un combat, le pokemon sauvage disparaît de la carte et s'ajoute à votre inventaire.
 
 ## Règles misent en place
-Le but du jeu est d'attrapper 200 pokemons sur les 300 de la carte via des combats entre les pokemons acquis et les pokemons sauvages.
+Le but du jeu est d'attrapper 200 pokemons sur les 300 de la carte via des combats entre les pokemons acquis et les pokemons sauvages (La victoire est donnée lorsque 200 pokemons sont acquis pour compenser le fait que certains pokemons peuvent apparaitre dans les arbres au milieu de la carte).
 
 Nous avons choisi de ne pas prendre en compte la vitesse des pokemons : c'est le pokemon du joueur qui attaque en premier.
 
